@@ -556,21 +556,5 @@
   <div class="rzp-note">Instant download access after successful payment.</div>
 </div>
 </script>
-<script>
-function validateAndPay(e) {
-  const name = document.getElementById('fname').value;
-  const email = document.getElementById('femail').value;
-  const status = document.getElementById('statusBox');
-
-  if (!name || !email.includes('@')) {
-    e.preventDefault();
-    status.textContent = "Please enter a valid name and email.";
-    status.className = "status show error";
-    return false;
-  }
-  // All good - browser follows the link to Razorpay
-  return true;
-}
-</script>
 </body>
 </html>
