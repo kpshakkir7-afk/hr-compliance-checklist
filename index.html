@@ -522,6 +522,56 @@
   function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
   const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } }), { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  <div class="checkout">
+  <div class="cc-title">Complete your order</div>
+  <div class="cc-sub">Secure checkout via Razorpay.</div>
+
+  <div class="price-row">
+    <span class="p-cur">₹</span>
+    <span class="p-num">499</span>
+    <span class="p-orig">₹1,499</span>
+  </div>
+  <span class="p-save">YOU SAVE ₹1,000 · 67% OFF</span>
+
+  <div class="inp-group">
+    <label class="inp-label" for="fname">Full Name</label>
+    <input class="inp" id="fname" type="text" placeholder="Arjun K" required>
+  </div>
+  
+  <div class="inp-group">
+    <label class="inp-label" for="femail">Email Address</label>
+    <input class="inp" id="femail" type="email" placeholder="name@email.com" required>
+  </div>
+
+  <a href="https://razorpay.me/@kottupurathputhiyapurayilshak" 
+     id="payLink" 
+     class="btn-pay" 
+     style="text-decoration: none;"
+     onclick="return validateAndPay(event)">
+    <span class="btn-txt">🔒 Pay ₹499 Securely</span>
+  </a>
+
+  <div class="status" id="statusBox"></div>
+  <div class="rzp-note">Instant download access after successful payment.</div>
+</div>
+
+<script>
+function validateAndPay(e) {
+  const name = document.getElementById('fname').value;
+  const email = document.getElementById('femail').value;
+  const status = document.getElementById('statusBox');
+
+  if (!name || !email.includes('@')) {
+    e.preventDefault();
+    status.textContent = "Please enter a valid name and email.";
+    status.className = "status show error";
+    return false;
+  }
+  // All good - browser follows the link to Razorpay
+  return true;
+}
+</script>
 </script>
 </body>
 </html>
