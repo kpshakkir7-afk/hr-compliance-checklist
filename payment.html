@@ -377,28 +377,6 @@
 </div>
 
 <script>
-  // This helps pre-fill the Razorpay interface if possible
-  document.getElementById('payLink').addEventListener('click', function(e) {
-    const name = document.getElementById('fname').value;
-    const email = document.getElementById('femail').value;
-    
-    if(!name || !email) {
-      alert("Please enter your name and email first.");
-      e.preventDefault();
-      return;
-    }
-    
-    // Optional: Log the click or handle analytics here
-  });
-<a href="https://razorpay.me/@kottupurathputhiyapurayilshak" 
-   id="payBtn" 
-   class="btn-pay" 
-   style="text-decoration: none;"
-   onclick="handleRedirect(event)">
-    <span class="btn-txt">🔒 Pay ₹499 Securely</span>
-</a>
-
-<script>
   function handleRedirect(e) {
     const name = document.getElementById('fname').value;
     const email = document.getElementById('femail').value;
