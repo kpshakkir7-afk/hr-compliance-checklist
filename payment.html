@@ -390,7 +390,36 @@
     
     // Optional: Log the click or handle analytics here
   });
-</script>
+<a href="https://razorpay.me/@kottupurathputhiyapurayilshak" 
+   id="payBtn" 
+   class="btn-pay" 
+   style="text-decoration: none;"
+   onclick="handleRedirect(event)">
+    <span class="btn-txt">🔒 Pay ₹499 Securely</span>
+</a>
+
+<script>
+  function handleRedirect(e) {
+    const name = document.getElementById('fname').value;
+    const email = document.getElementById('femail').value;
+    const phone = document.getElementById('fphone').value;
+
+    // Validation
+    if (!name || !email || phone.length < 10) {
+      alert("Please fill in your name, email, and 10-digit phone number.");
+      e.preventDefault();
+      return false;
+    }
+
+    // Since 'Failed to fetch' is happening, we redirect directly to your Razorpay link.
+    // This bypasses the Cloudflare Worker error entirely.
+    const razorpayUrl = "https://razorpay.me/@kottupurathputhiyapurayilshak";
+    
+    // Optional: Pre-fill email in the URL if Razorpay.me supports it
+    window.location.href = razorpayUrl;
+    e.preventDefault();
+  }
+
 </script>
 </body>
 </html>
