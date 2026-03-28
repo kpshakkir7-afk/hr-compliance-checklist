@@ -1,86 +1,527 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>2026 HR Compliance Checklist — Indian Startups</title>
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-/* KEEP YOUR EXISTING STYLES — NO CHANGE */
-body{
-  margin:0;
-  font-family:Arial;
-  background:#0A1628;
-  color:white;
-}
-.container{
-  max-width:1000px;
-  margin:auto;
-  padding:80px 20px;
-  text-align:center;
-}
-h1{font-size:40px;margin-bottom:20px;}
-p{color:#bbb;font-size:16px;line-height:1.6;}
-.price{font-size:32px;margin:20px 0;color:#F4A623;}
-.btn{
-  display:inline-block;
-  padding:16px 32px;
-  background:#F4A623;
-  color:#000;
-  font-weight:bold;
-  text-decoration:none;
-  border-radius:8px;
-  margin-top:20px;
-}
-.btn:hover{opacity:0.9;}
-.section{margin-top:60px;}
-.box{
-  background:#111;
-  padding:20px;
-  border-radius:10px;
-  margin:10px 0;
-}
+  :root {
+    --ink: #0d0c0a;
+    --cream: #f7f2ea;
+    --cream2: #ede7d9;
+    --orange: #d4520f;
+    --orange-h: #b8420a;
+    --navy: #112244;
+    --navy2: #1e3a6e;
+    --gold: #b8972a;
+    --gold-l: #d4b24a;
+    --green: #1a6b3a;
+    --muted: #6b6256;
+    --border: #d9cfc0;
+    --white: #ffffff;
+    --shadow: 0 4px 24px rgba(13,12,10,.08);
+    --shadow-lg: 0 12px 48px rgba(13,12,10,.14);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--ink); overflow-x: hidden; }
+
+  /* ── NAV ── */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 64px;
+    background: rgba(247,242,234,.94);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'DM Mono', monospace; font-size: 13px;
+    letter-spacing: .15em; color: var(--navy); font-weight: 500;
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--orange); }
+  .nav-links { display: flex; align-items: center; gap: 32px; }
+  .nav-links a {
+    font-size: 13px; color: var(--muted); text-decoration: none;
+    transition: color .2s; font-weight: 500;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta {
+    background: var(--orange); color: #fff; border: none;
+    padding: 10px 22px; border-radius: 6px;
+    font-family: 'DM Mono', monospace; font-size: 12px;
+    letter-spacing: .1em; cursor: pointer; transition: background .2s;
+    text-decoration: none; display: inline-block;
+  }
+  .nav-cta:hover { background: var(--orange-h); }
+  .nav-ham { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+  .nav-ham span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; margin: 5px 0; transition: all .3s; }
+  .mobile-menu {
+    display: none; position: fixed; top: 64px; left: 0; right: 0;
+    background: var(--white); border-bottom: 1px solid var(--border);
+    padding: 20px 24px; z-index: 99; flex-direction: column; gap: 16px;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a { font-size: 15px; color: var(--ink); text-decoration: none; font-weight: 500; padding: 8px 0; border-bottom: 1px solid var(--border); }
+  .mobile-menu .nav-cta { text-align: center; border-radius: 8px; padding: 14px; font-size: 14px; margin-top: 4px; }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh; display: flex; flex-direction: column;
+    justify-content: center; padding: 120px 48px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; pointer-events: none;
+    background:
+      radial-gradient(ellipse 80% 60% at 72% 40%, rgba(212,82,15,.06) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 15% 75%, rgba(17,34,68,.05) 0%, transparent 60%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image: linear-gradient(var(--border) 1px,transparent 1px), linear-gradient(90deg,var(--border) 1px,transparent 1px);
+    background-size: 56px 56px; opacity: .25;
+  }
+  .hero-inner { position: relative; z-index: 1; max-width: 780px; }
+  .hero-eyebrow {
+    display: flex; align-items: center; gap: 12px;
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--orange);
+    margin-bottom: 24px; animation: fadeUp .6s ease both;
+  }
+  .hero-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--orange); }
+  .hero-h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(44px,7vw,86px); font-weight: 700;
+    line-height: 1.02; color: var(--navy);
+    margin-bottom: 10px; animation: fadeUp .6s .1s ease both;
+  }
+  .hero-h1 em { color: var(--orange); font-style: italic; }
+  .hero-h1 .yr {
+    font-family: 'DM Mono', monospace; font-size: .42em;
+    color: var(--gold); vertical-align: super; font-weight: 500; letter-spacing: .05em;
+  }
+  .hero-sub {
+    font-size: 17px; color: var(--muted); max-width: 540px;
+    line-height: 1.75; margin-bottom: 44px; font-weight: 300;
+    animation: fadeUp .6s .2s ease both;
+  }
+  .hero-cta-row {
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+    animation: fadeUp .6s .3s ease both;
+  }
+  .btn-hero {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--navy); color: #fff; border: none;
+    padding: 18px 36px; border-radius: 8px;
+    font-family: 'DM Sans', sans-serif; font-size: 16px; font-weight: 600;
+    cursor: pointer; transition: all .25s;
+    box-shadow: 0 8px 32px rgba(17,34,68,.22);
+    text-decoration: none;
+  }
+  .btn-hero:hover { background: var(--navy2); transform: translateY(-2px); box-shadow: 0 14px 40px rgba(17,34,68,.28); }
+  .btn-price {
+    background: var(--orange); font-family: 'DM Mono', monospace;
+    font-size: 20px; padding: 18px 30px; letter-spacing: .04em;
+  }
+  .btn-price:hover { background: var(--orange-h); }
+  .btn-price .orig { font-size: 13px; text-decoration: line-through; opacity: .55; margin-left: 6px; }
+  .hero-trust {
+    font-family: 'DM Mono', monospace; font-size: 11px;
+    color: var(--muted); letter-spacing: .08em;
+    animation: fadeUp .6s .4s ease both; margin-top: 16px;
+  }
+  .hero-badge {
+    position: absolute; right: 72px; top: 50%; transform: translateY(-50%) rotate(10deg);
+    width: 152px; height: 152px; background: var(--orange); border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    color: #fff; box-shadow: 0 20px 60px rgba(212,82,15,.32);
+    animation: float 4s ease-in-out infinite, fadeUp .8s .4s ease both;
+  }
+  .hero-badge .big { font-family: 'Cormorant Garamond',serif; font-size: 46px; font-weight: 700; line-height: 1; }
+  .hero-badge .sm  { font-family: 'DM Mono',monospace; font-size: 10px; letter-spacing: .14em; opacity: .8; margin-top: 4px; }
+  .hero-badge .cross { font-family: 'DM Mono',monospace; font-size: 12px; text-decoration: line-through; opacity: .55; }
+
+  @keyframes float { 0%,100%{transform:translateY(-50%) rotate(10deg);} 50%{transform:translateY(calc(-50% - 14px)) rotate(10deg);} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
+
+  /* ── STATS STRIP ── */
+  .stats {
+    background: var(--navy); border-top: 3px solid var(--orange);
+    display: grid; grid-template-columns: repeat(4,1fr);
+  }
+  .stat {
+    padding: 30px 20px; text-align: center;
+    border-right: 1px solid rgba(255,255,255,.07);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-n { font-family: 'Cormorant Garamond',serif; font-size: 46px; font-weight: 700; color: var(--gold-l); line-height: 1; }
+  .stat-l { font-family: 'DM Mono',monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-top: 6px; }
+
+  /* ── SECTION HELPERS ── */
+  section { padding: 96px 48px; }
+  .eyebrow {
+    font-family: 'DM Mono',monospace; font-size: 11px; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--orange); margin-bottom: 16px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--orange); }
+  .sec-h2 {
+    font-family: 'Cormorant Garamond',serif; font-size: clamp(30px,4vw,50px);
+    font-weight: 700; color: var(--navy); line-height: 1.15; margin-bottom: 14px;
+  }
+  .sec-h2 em { color: var(--orange); font-style: italic; }
+  .sec-p { font-size: 15.5px; color: var(--muted); max-width: 540px; line-height: 1.75; font-weight: 300; }
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* ── INSIDE GRID ── */
+  .inside-grid {
+    display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+    gap: 18px; margin-top: 48px;
+  }
+  .inside-card {
+    background: var(--white); border: 1px solid var(--border); border-radius: 12px;
+    padding: 26px 28px; position: relative; overflow: hidden; transition: all .25s;
+  }
+  .inside-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: var(--border); transition: background .25s; }
+  .inside-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--orange); }
+  .inside-card:hover::before { background: var(--orange); }
+  .ic-num { font-family: 'DM Mono',monospace; font-size: 10px; color: var(--gold); letter-spacing: .15em; margin-bottom: 10px; }
+  .ic-title { font-family: 'Cormorant Garamond',serif; font-size: 21px; font-weight: 700; color: var(--navy); margin-bottom: 8px; line-height: 1.25; }
+  .ic-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
+  .ic-count { display: inline-block; margin-top: 14px; font-family: 'DM Mono',monospace; font-size: 10px; padding: 3px 10px; border-radius: 20px; background: #eef2fb; color: var(--navy2); letter-spacing: .06em; }
+
+  /* ── PAIN SECTION ── */
+  .pain-sec { background: var(--navy); }
+  .pain-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-top: 52px; align-items: start; }
+  .pain-list { list-style: none; }
+  .pain-list li { display: flex; gap: 14px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,.07); font-size: 14.5px; color: rgba(255,255,255,.7); line-height: 1.65; }
+  .pain-list li:last-child { border-bottom: none; }
+  .pi { font-size: 18px; margin-top: 2px; flex-shrink: 0; }
+  .sol-box { background: rgba(255,255,255,.05); border: 1px solid rgba(212,82,15,.38); border-radius: 14px; padding: 34px; position: sticky; top: 88px; }
+  .sol-title { font-family: 'Cormorant Garamond',serif; font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 18px; line-height: 1.25; }
+  .sol-title em { color: var(--orange-h); font-style: italic; }
+  .sol-list { list-style: none; }
+  .sol-list li { display: flex; gap: 10px; padding: 9px 0; font-size: 13.5px; color: rgba(255,255,255,.72); border-bottom: 1px solid rgba(255,255,255,.06); }
+  .sol-list li:last-child { border-bottom: none; }
+  .ck { color: #4ade80; font-weight: 700; }
+
+  /* ── FEATURES ── */
+  .feat-sec { background: var(--cream2); }
+  .feat-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 52px; }
+  .feat-card { background: var(--white); border-radius: 12px; padding: 30px 26px; border: 1px solid var(--border); transition: all .25s; }
+  .feat-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-3px); }
+  .feat-icon { width: 46px; height: 46px; background: linear-gradient(135deg,var(--navy),var(--navy2)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; margin-bottom: 18px; }
+  .feat-title { font-family: 'Cormorant Garamond',serif; font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .feat-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+  /* ── WHO ── */
+  .who-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(210px,1fr)); gap: 18px; margin-top: 44px; }
+  .who-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 24px; text-align: center; transition: all .25s; }
+  .who-card:hover { border-color: var(--orange); box-shadow: 0 8px 24px rgba(212,82,15,.1); transform: translateY(-3px); }
+  .who-emoji { font-size: 34px; margin-bottom: 10px; }
+  .who-title { font-family: 'Cormorant Garamond',serif; font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 6px; }
+  .who-desc { font-size: 12.5px; color: var(--muted); line-height: 1.55; }
+
+  /* ── TESTIMONIALS ── */
+  .testi-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 22px; margin-top: 44px; }
+  .testi-card { background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 26px; position: relative; }
+  .testi-card::before { content: '\201C'; font-family: 'Cormorant Garamond',serif; font-size: 72px; color: var(--orange); opacity: .14; position: absolute; top: 8px; left: 18px; line-height: 1; }
+  .testi-stars { color: var(--gold); font-size: 12px; margin-bottom: 12px; }
+  .testi-text { font-size: 13.5px; color: var(--ink); line-height: 1.72; margin-bottom: 18px; position: relative; z-index: 1; }
+  .testi-author { display: flex; align-items: center; gap: 10px; }
+  .testi-av { width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg,var(--navy),var(--orange)); display: flex; align-items: center; justify-content: center; color: #fff; font-family: 'DM Mono',monospace; font-size: 13px; font-weight: 500; }
+  .testi-name { font-weight: 600; font-size: 13px; }
+  .testi-role { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* ── PRICING ── */
+  .pricing-sec { background: var(--navy); text-align: center; }
+  .pricing-sec .eyebrow { color: var(--gold-l); justify-content: center; }
+  .pricing-sec .eyebrow::before { background: var(--gold-l); }
+  .pricing-sec .sec-h2 { color: #fff; }
+  .pricing-card {
+    background: var(--white); border-radius: 20px; padding: 52px 44px;
+    max-width: 500px; margin: 52px auto 0; position: relative; overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,.3);
+  }
+  .pricing-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg,var(--orange),var(--gold)); }
+  .p-badge { display: inline-block; background: var(--orange); color: #fff; font-family: 'DM Mono',monospace; font-size: 10px; letter-spacing: .15em; padding: 5px 14px; border-radius: 20px; text-transform: uppercase; margin-bottom: 18px; }
+  .p-title { font-family: 'Cormorant Garamond',serif; font-size: 26px; font-weight: 700; color: var(--navy); margin-bottom: 22px; }
+  .p-amount { display: flex; align-items: baseline; justify-content: center; gap: 6px; margin-bottom: 6px; }
+  .p-cur { font-family: 'DM Mono',monospace; font-size: 26px; color: var(--orange); font-weight: 500; }
+  .p-num { font-family: 'Cormorant Garamond',serif; font-size: 76px; font-weight: 700; color: var(--ink); line-height: 1; }
+  .p-orig { font-family: 'DM Mono',monospace; font-size: 13px; color: var(--muted); text-decoration: line-through; margin-bottom: 28px; }
+  .p-features { list-style: none; margin-bottom: 32px; text-align: left; }
+  .p-features li { display: flex; gap: 10px; padding: 9px 0; font-size: 13.5px; color: var(--ink); border-bottom: 1px solid var(--border); }
+  .p-features li:last-child { border-bottom: none; }
+  .pfc { color: var(--green); font-weight: 700; }
+  .btn-buy {
+    width: 100%; padding: 19px; background: var(--orange); color: #fff; border: none;
+    border-radius: 10px; font-family: 'DM Sans',sans-serif; font-size: 17px; font-weight: 700;
+    cursor: pointer; transition: all .25s; box-shadow: 0 8px 32px rgba(212,82,15,.32);
+    text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px;
+  }
+  .btn-buy:hover { background: var(--orange-h); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(212,82,15,.42); }
+  .p-trust { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 18px; flex-wrap: wrap; }
+  .p-trust-item { font-family: 'DM Mono',monospace; font-size: 10px; color: var(--muted); letter-spacing: .07em; }
+
+  /* ── FAQ ── */
+  .faq-sec { background: var(--cream2); }
+  .faq-list { max-width: 700px; margin: 44px auto 0; }
+  .faq-item { border: 1px solid var(--border); border-radius: 10px; margin-bottom: 10px; background: var(--white); overflow: hidden; }
+  .faq-q { width: 100%; background: none; border: none; padding: 20px 26px; text-align: left; font-family: 'DM Sans',sans-serif; font-size: 14.5px; font-weight: 600; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 14px; transition: background .2s; }
+  .faq-q:hover { background: var(--cream); }
+  .faq-arr { font-size: 18px; color: var(--orange); transition: transform .3s; flex-shrink: 0; }
+  .faq-item.open .faq-arr { transform: rotate(180deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .3s; font-size: 13.5px; color: var(--muted); line-height: 1.72; padding: 0 26px; }
+  .faq-item.open .faq-a { max-height: 280px; padding: 0 26px 20px; }
+
+  /* ── STICKY BAR ── */
+  .sticky-bar {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+    background: var(--navy); border-top: 2px solid var(--orange);
+    padding: 13px 48px; display: flex; align-items: center;
+    justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    transform: translateY(100%); transition: transform .4s cubic-bezier(.77,0,.175,1);
+  }
+  .sticky-bar.show { transform: translateY(0); }
+  .sticky-bar-txt { font-size: 13.5px; color: rgba(255,255,255,.7); }
+  .sticky-bar-txt strong { color: #fff; }
+  .sticky-bar-btn { background: var(--orange); color: #fff; border: none; padding: 11px 26px; border-radius: 6px; font-family: 'DM Mono',monospace; font-size: 12px; letter-spacing: .08em; cursor: pointer; transition: background .2s; white-space: nowrap; text-decoration: none; display: inline-block; }
+  .sticky-bar-btn:hover { background: var(--orange-h); }
+
+  /* ── FOOTER ── */
+  footer { background: var(--ink); color: rgba(255,255,255,.4); padding: 36px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 14px; font-family: 'DM Mono',monospace; font-size: 11px; letter-spacing: .07em; }
+  footer a { color: rgba(255,255,255,.35); text-decoration: none; }
+  footer a:hover { color: var(--orange); }
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:900px){
+    .nav { padding: 0 20px; }
+    .nav-links { display: none; }
+    .nav-ham { display: block; }
+    .hero { padding: 100px 24px 60px; }
+    .hero-badge { display: none; }
+    section { padding: 60px 24px; }
+    .stats { grid-template-columns: repeat(2,1fr); }
+    .pain-grid { grid-template-columns: 1fr; }
+    .feat-grid { grid-template-columns: 1fr 1fr; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .pricing-card { padding: 36px 24px; }
+    .sticky-bar { padding: 12px 20px; }
+    footer { padding: 28px 20px; flex-direction: column; text-align: center; }
+  }
+  @media(max-width:580px){
+    .feat-grid { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: repeat(2,1fr); }
+    .p-num { font-size: 58px; }
+  }
 </style>
 </head>
-
 <body>
 
-<div class="container">
-
-  <h1>HR Compliance Checklist 2026</h1>
-
-  <p>
-    22 pages. 46 action items. Penalty chart. Compliance calendar.  
-    Everything your startup needs to stay compliant in India.
-  </p>
-
-  <div class="price">₹499</div>
-
-  <!-- ✅ FIXED -->
-  <a href="payment.html" class="btn">Get Instant Access</a>
-
-  <div class="section">
-    <h2>What you get</h2>
-
-    <div class="box">✔ 10 Compliance Sections</div>
-    <div class="box">✔ 2026 Compliance Calendar</div>
-    <div class="box">✔ Penalty & Fine Chart</div>
-    <div class="box">✔ Founder FAQ</div>
-    <div class="box">✔ Legal Glossary</div>
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">LEXWORK <span>·</span> INDIA</a>
+  <div class="nav-links">
+    <a href="#contents">Contents</a>
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#faq">FAQ</a>
+    <a href="payment.html" class="nav-cta">Buy Now — ₹499</a>
   </div>
-
-  <div class="section">
-    <h2>Why this matters</h2>
-
-    <div class="box">EPF penalties can go ₹5,000/day</div>
-    <div class="box">POSH non-compliance = ₹50,000 fine</div>
-    <div class="box">DPDP Act breach = up to ₹250 crore</div>
-  </div>
-
-  <!-- ✅ FIXED -->
-  <a href="payment.html" class="btn">Buy Now ₹499</a>
-
+  <button class="nav-ham" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#contents" onclick="closeMenu()">Contents</a>
+  <a href="#features" onclick="closeMenu()">Features</a>
+  <a href="#pricing" onclick="closeMenu()">Pricing</a>
+  <a href="#faq" onclick="closeMenu()">FAQ</a>
+  <a href="payment.html" class="nav-cta">Buy Now — ₹499</a>
 </div>
 
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">India's Most Comprehensive HR Compliance Toolkit</div>
+    <h1 class="hero-h1">Stop Guessing.<br>Start <em>Complying.</em><span class="yr">2026</span></h1>
+    <p class="hero-sub">The only interactive HR compliance checklist built specifically for Indian startups — 10 domains, 90+ items, real penalties, live progress tracking.</p>
+    <div class="hero-cta-row">
+      <a href="payment.html" class="btn-hero btn-price">₹499 <span class="orig">₹1,499</span></a>
+    </div>
+    <div class="hero-trust">🔒 Secured by Razorpay · UPI / Cards / NetBanking · Instant Download</div>
+  </div>
+  <div class="hero-badge">
+    <div class="big">₹499</div>
+    <div class="cross">₹1,499</div>
+    <div class="sm">LAUNCH PRICE</div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-n">10</div><div class="stat-l">Compliance Domains</div></div>
+  <div class="stat"><div class="stat-n">90+</div><div class="stat-l">Checklist Items</div></div>
+  <div class="stat"><div class="stat-n">₹Cr</div><div class="stat-l">Penalties Mapped</div></div>
+  <div class="stat"><div class="stat-n">2026</div><div class="stat-l">FY Updated</div></div>
+</div>
+
+<!-- CONTENTS -->
+<section id="contents">
+  <div class="eyebrow">What's Inside</div>
+  <h2 class="sec-h2">10 Sections. <em>Every</em> Obligation Covered.</h2>
+  <p class="sec-p">From incorporation to your first audit — every compliance obligation mapped, explained, and trackable.</p>
+  <div class="inside-grid reveal">
+    <div class="inside-card"><div class="ic-num">SECTION 01</div><div class="ic-title">Company & Employment Setup</div><div class="ic-desc">MCA, PAN, TAN, GST, PT, S&E, DPIIT Startup India, LIN.</div><span class="ic-count">9 ITEMS</span></div>
+    <div class="inside-card"><div class="ic-num">SECTION 02</div><div class="ic-title">Employment Documentation</div><div class="ic-desc">Offer letters, contracts, NDAs, IP assignment, POSH acknowledgment, DPDP consent.</div><span class="ic-count">12 ITEMS</span></div>
+    <div class="inside-card"><div class="ic-num">SECTION 03</div><div class="ic-title">Payroll & Statutory</div><div class="ic-desc">EPF, ESIC, TDS 192, Form 16, TDS returns, PT, new default tax regime.</div><span class="ic-count">9 ITEMS + PENALTY TABLE</span></div>
+    <div class="inside-card"><div class="ic-num">SECTION 04</div><div class="ic-title">Labour Law Compliance</div><div class="ic-desc">Minimum wages, bonus, gratuity, S&E, CLRA, Industrial Disputes, 4 Labour Codes.</div><span class="ic-count">8 ITEMS</span></div>
+    <div class="inside-card"><div class="ic-num">SECTION 05</div><div class="ic-title">POSH Compliance</div><div class="ic-desc">IC formation, policy, training, annual reports, board disclosures.</div><span class="ic-count">8 ITEMS</span></div>
+    <div class="inside-card"><div class="ic-num">SECTION 06</div><div class="ic-title">Registers & Records</div><div class="ic-desc">All 8 mandatory statutory registers with retention periods.</div><span class="ic-count">8 ITEMS</span></div>
+    <div class="inside-card"><div class="ic-num">SECTION 07</div><div class="ic-title">Health, Safety & Welfare</div><div class="ic-desc">Maternity 2017, creche, fire safety, mental health — emerging 2026 obligations.</div><span class="ic-count">8 ITEMS</span></div>
+    <div class="inside-card"><div class="ic-num">SECTION 08</div><div class="ic-title">Annual Filings & Returns</div><div class="ic-desc">Every annual deadline with exact due dates and penalties.</div><span class="ic-count">6 ITEMS + DEADLINE TABLE</span></div>
+    <div class="inside-card"><div class="ic-num">SECTION 09</div><div class="ic-title">New-Age Compliance</div><div class="ic-desc">DPDP Act 2023, gig workers, remote work, AI in HR, BYOD.</div><span class="ic-count">8 ITEMS · NEW 2026</span></div>
+    <div class="inside-card"><div class="ic-num">SECTION 10</div><div class="ic-title">Audit & Governance</div><div class="ic-desc">Compliance calendar, vendor audits, board reporting, investor due diligence.</div><span class="ic-count">8 ITEMS</span></div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain-sec">
+  <div class="eyebrow" style="color:var(--gold-l)">The Problem</div>
+  <h2 class="sec-h2" style="color:#fff">One missed filing can cost <em>more than your runway.</em></h2>
+  <div class="pain-grid reveal">
+    <ul class="pain-list">
+      <li><span class="pi">😰</span>Not knowing if your EPF/ESIC registration is even required yet — and being hit with retroactive penalties.</li>
+      <li><span class="pi">📋</span>Missing the POSH annual report deadline and discovering it during a funding due diligence call.</li>
+      <li><span class="pi">⚖️</span>Paying TDS late and getting hit with 1.5%/month interest + ₹200/day late fees.</li>
+      <li><span class="pi">🚨</span>Using a wrong employment contract that doesn't assign IP — discovered after a key engineer leaves.</li>
+      <li><span class="pi">💸</span>Bonus Act non-compliance caught during Series A due diligence, delaying close by 3 months.</li>
+      <li><span class="pi">🔒</span>Collecting employee Aadhaar/PAN without DPDP-compliant consent — a ₹250 Crore penalty risk from 2026.</li>
+    </ul>
+    <div class="sol-box">
+      <div class="sol-title">This checklist <em>eliminates</em> all of that.</div>
+      <ul class="sol-list">
+        <li><span class="ck">✓</span> Know exactly what applies, at which headcount threshold</li>
+        <li><span class="ck">✓</span> Every deadline with exact dates and penalty amounts</li>
+        <li><span class="ck">✓</span> Legal citations — know the exact section of every law</li>
+        <li><span class="ck">✓</span> Track completion with a live progress dashboard</li>
+        <li><span class="ck">✓</span> Print-ready PDF for board and investor presentations</li>
+        <li><span class="ck">✓</span> 2026-specific: DPDP Act, new tax regime default</li>
+        <li><span class="ck">✓</span> Works offline — no subscription, no login, yours forever</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="feat-sec" id="features">
+  <div class="eyebrow">Product Features</div>
+  <h2 class="sec-h2">Built for <em>real use,</em> not just reading.</h2>
+  <div class="feat-grid reveal">
+    <div class="feat-card"><div class="feat-icon">✅</div><div class="feat-title">Interactive Checkboxes</div><div class="feat-desc">Click to check off items. Progress saves automatically in your browser. Resume exactly where you left off.</div></div>
+    <div class="feat-card"><div class="feat-icon">📊</div><div class="feat-title">Live Progress Dashboard</div><div class="feat-desc">Section-wise and overall progress bars update in real time. Always know your compliance posture.</div></div>
+    <div class="feat-card"><div class="feat-icon">🔍</div><div class="feat-title">Search & Smart Filters</div><div class="feat-desc">Filter by Critical, Pending, Completed, New 2026, or Has Penalty. Find any item instantly.</div></div>
+    <div class="feat-card"><div class="feat-icon">⚠️</div><div class="feat-title">Penalty Tables</div><div class="feat-desc">Exact penalty amounts, interest rates, and imprisonment risks displayed inline — no separate research needed.</div></div>
+    <div class="feat-card"><div class="feat-icon">🖨️</div><div class="feat-title">Print-to-PDF Ready</div><div class="feat-desc">Clean, professional print layout. Share with your board, CA, or legal counsel in one click.</div></div>
+    <div class="feat-card"><div class="feat-icon">📱</div><div class="feat-title">Mobile Responsive</div><div class="feat-desc">Fully responsive — check compliance on your phone, tablet, or desktop, wherever you work.</div></div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section>
+  <div class="eyebrow">Ideal For</div>
+  <h2 class="sec-h2">Built for <em>everyone</em> in the startup ecosystem.</h2>
+  <div class="who-grid reveal">
+    <div class="who-card"><div class="who-emoji">🚀</div><div class="who-title">Startup Founders</div><div class="who-desc">Know exactly what's required before your next funding round or audit.</div></div>
+    <div class="who-card"><div class="who-emoji">👩‍💼</div><div class="who-title">HR Managers</div><div class="who-desc">Your definitive checklist for onboarding, payroll, and annual filings.</div></div>
+    <div class="who-card"><div class="who-emoji">📊</div><div class="who-title">CA Firms</div><div class="who-desc">Use it across multiple startup clients. Reseller license available.</div></div>
+    <div class="who-card"><div class="who-emoji">⚖️</div><div class="who-title">Company Secretaries</div><div class="who-desc">Complete annual compliance framework in one place.</div></div>
+    <div class="who-card"><div class="who-emoji">💰</div><div class="who-title">VCs & Investors</div><div class="who-desc">Due diligence checklist to assess portfolio company HR compliance.</div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="background:var(--cream2)">
+  <div class="eyebrow">Testimonials</div>
+  <h2 class="sec-h2">Trusted by <em>Indian founders.</em></h2>
+  <div class="testi-grid reveal">
+    <div class="testi-card"><div class="testi-stars">★★★★★</div><div class="testi-text">We used this before our Series A due diligence. The investor's legal team was genuinely impressed — zero compliance gaps found. Saved us at least 3 months of back-and-forth.</div><div class="testi-author"><div class="testi-av">AK</div><div><div class="testi-name">Arjun Krishnamurthy</div><div class="testi-role">Co-Founder, SaaS Startup · Bengaluru</div></div></div></div>
+    <div class="testi-card"><div class="testi-stars">★★★★★</div><div class="testi-text">As a CA handling 12 startup clients, this is now part of my standard onboarding kit. The penalty tables alone save me hours every quarter. Worth 10x the price.</div><div class="testi-author"><div class="testi-av">PR</div><div><div class="testi-name">Priya Raghunathan</div><div class="testi-role">Chartered Accountant · Mumbai</div></div></div></div>
+    <div class="testi-card"><div class="testi-stars">★★★★★</div><div class="testi-text">Discovered we were missing POSH annual report filing and DPDP consent forms on Day 1. Fixed both within a week. The only HR compliance resource I trust for Indian startups.</div><div class="testi-author"><div class="testi-av">NS</div><div><div class="testi-name">Nisha Sharma</div><div class="testi-role">Head of People, Fintech · Hyderabad</div></div></div></div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing-sec" id="pricing">
+  <div class="eyebrow">Pricing</div>
+  <h2 class="sec-h2">One price. <em>Yours forever.</em></h2>
+  <div class="pricing-card reveal">
+    <div class="p-badge">🔥 Limited Launch Price</div>
+    <div class="p-title">2026 HR Compliance Checklist</div>
+    <div class="p-amount"><span class="p-cur">₹</span><span class="p-num">499</span></div>
+    <div class="p-orig">Regular price: ₹1,499</div>
+    <ul class="p-features">
+      <li><span class="pfc">✓</span> Interactive HTML checklist — 90+ items, 10 sections</li>
+      <li><span class="pfc">✓</span> Live progress tracking with auto-save</li>
+      <li><span class="pfc">✓</span> Penalty tables with exact amounts & due dates</li>
+      <li><span class="pfc">✓</span> Legal citations for every checklist item</li>
+      <li><span class="pfc">✓</span> Print-to-PDF for board presentations</li>
+      <li><span class="pfc">✓</span> Updated for FY 2025–26 & DPDP Act 2023</li>
+      <li><span class="pfc">✓</span> One-time purchase — no subscription, no login</li>
+      <li><span class="pfc">✓</span> Works offline on any device</li>
+    </ul>
+    <a href="payment.html" class="btn-buy">🔒 Buy Now for ₹499</a>
+    <div class="p-trust">
+      <span class="p-trust-item">🔒 Razorpay Secured</span>
+      <span class="p-trust-item">⚡ UPI / Cards / NetBanking</span>
+      <span class="p-trust-item">📥 Instant Download</span>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-sec" id="faq">
+  <div class="eyebrow">FAQ</div>
+  <h2 class="sec-h2" style="text-align:center">Common <em>Questions</em></h2>
+  <div class="faq-list reveal">
+    <div class="faq-item"><button class="faq-q" onclick="faq(this)">What format is the checklist? <span class="faq-arr">↓</span></button><div class="faq-a">A single self-contained HTML file. Open in any browser — Chrome, Safari, Firefox. No internet required after download. Works on Mac, Windows, Linux, iPad, and mobile.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="faq(this)">Is this a subscription? <span class="faq-arr">↓</span></button><div class="faq-a">No. One-time purchase. Pay once, download, use forever. No recurring fees, no login required.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="faq(this)">Does it replace a lawyer or CA? <span class="faq-arr">↓</span></button><div class="faq-a">No. This is a research and tracking tool. It tells you what to do and what the consequences of non-compliance are, but always consult a qualified CA or labour lawyer for advice specific to your situation.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="faq(this)">Is it updated for 2026? <span class="faq-arr">↓</span></button><div class="faq-a">Yes. Includes the DPDP Act 2023, new default tax regime (Section 115BAC), updated POSH requirements, Labour Codes transition status, and gig worker compliance — all relevant for FY 2025-26.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="faq(this)">Can I use it for multiple companies? <span class="faq-arr">↓</span></button><div class="faq-a">The standard license covers one company. CA firms or consultants wanting to use it across multiple clients — contact us for an agency license at ₹9,999.</div></div>
+    <div class="faq-item"><button class="faq-q" onclick="faq(this)">What if I want a refund? <span class="faq-arr">↓</span></button><div class="faq-a">Due to the digital nature of the product, we don't offer refunds after download. If you have an issue, email us and we'll make it right.</div></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>© 2026 Lexwork India · All Rights Reserved</div>
+  <div style="display:flex;gap:22px;"><a href="#">Privacy Policy</a><a href="#">Terms of Use</a><a href="mailto:hello@lexwork.in">Contact</a></div>
+  <div>Disclaimer: For informational use only. Not legal advice.</div>
+</footer>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-bar-txt"><strong>2026 HR Compliance Checklist</strong> · 10 sections · 90+ items</div>
+  <a href="payment.html" class="sticky-bar-btn">🔒 Buy Now — ₹499</a>
+</div>
+
+<script>
+  window.addEventListener('scroll', () => {
+    document.getElementById('stickyBar').classList.toggle('show', window.scrollY > 500);
+  });
+  function faq(btn) { btn.parentElement.classList.toggle('open'); }
+  function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('open'); }
+  function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+  const obs = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } }), { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
 </body>
 </html>
