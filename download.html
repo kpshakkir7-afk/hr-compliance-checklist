@@ -3,9 +3,10 @@
 <head>
   <title>Download</title>
 </head>
+
 <body style="font-family: Arial; text-align:center; padding:60px;">
 
-  <h2>Your Download</h2>
+  <h2>Payment Successful 🎉</h2>
 
   <a id="download-link"
      href="#"
@@ -17,28 +18,53 @@
   <p id="status">Verifying payment...</p>
 
   <script>
-  window.onload = function () {
+  async function unlockDownload() {
 
-    const isPaid = sessionStorage.getItem("paid");
+    const params = new URLSearchParams(window.location.search);
+
+    const paymentId = params.get('payment_id');
+    const orderId = params.get('order_id');
+    const signature = params.get('signature');
 
     const btn = document.getElementById("download-link");
     const status = document.getElementById("status");
 
-    if (isPaid === "true") {
+    // ❌ No params = block
+    if (!paymentId || !orderId || !signature) {
+      status.innerText = "Invalid access. Please complete payment.";
+      return;
+    }
 
+    try {
+
+      const res = await fetch("https://payment-worker.kpshakkir7.workers.dev/verify-payment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          razorpay_payment_id: paymentId,
+          razorpay_order_id: orderId,
+          razorpay_signature: signature
+        })
+      });
+
+      const result = await res.json();
+
+      if (!result.success) throw new Error();
+
+      // ✅ Enable secure download
       btn.href = "https://payment-worker.kpshakkir7.workers.dev/download?paid=true";
       btn.removeAttribute("aria-disabled");
 
-      status.innerText = "Payment verified. Click to download.";
+      status.innerText = "Download ready. Click below.";
 
-    } else {
-
-      btn.href = "#";
-      btn.setAttribute("aria-disabled", "true");
-
-      status.innerText = "Payment not verified.";
+    } catch (err) {
+      status.innerText = "Payment verification failed.";
     }
-  };
+  }
+
+  unlockDownload();
   </script>
 
 </body>
