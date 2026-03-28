@@ -344,6 +344,53 @@
       setLoading(false);
     }
   }
+  <div class="checkout">
+  <div class="cc-title">Complete your order</div>
+  <div class="cc-sub">Secure payment via Razorpay.</div>
+
+  <div class="price-row">
+    <span class="p-cur">₹</span>
+    <span class="p-num">499</span>
+    <span class="p-orig">₹1,499</span>
+  </div>
+  <span class="p-save">YOU SAVE ₹1,000 · 67% OFF</span>
+
+  <div class="inp-group">
+    <label class="inp-label" for="fname">Full Name</label>
+    <input class="inp" id="fname" type="text" placeholder="Your Name">
+  </div>
+  
+  <div class="inp-group">
+    <label class="inp-label" for="femail">Email Address</label>
+    <input class="inp" id="femail" type="email" placeholder="email@example.com">
+  </div>
+
+  <a href="https://razorpay.me/@kottupurathputhiyapurayilshak" 
+     id="payLink" 
+     class="btn-pay" 
+     style="text-decoration: none;" 
+     target="_blank">
+    <span class="btn-txt">🔒 Pay ₹499 Securely</span>
+  </a>
+
+  <div class="rzp-note">Instant download after payment.</div>
+</div>
+
+<script>
+  // This helps pre-fill the Razorpay interface if possible
+  document.getElementById('payLink').addEventListener('click', function(e) {
+    const name = document.getElementById('fname').value;
+    const email = document.getElementById('femail').value;
+    
+    if(!name || !email) {
+      alert("Please enter your name and email first.");
+      e.preventDefault();
+      return;
+    }
+    
+    // Optional: Log the click or handle analytics here
+  });
+</script>
 </script>
 </body>
 </html>
