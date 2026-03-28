@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HR Compliance Checklist</title>
+  <title>Checkout - HRComply</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body style="font-family: Arial; text-align:center; padding:60px;">
 
   <h1>HR Compliance Checklist 2026</h1>
@@ -11,9 +12,49 @@
 
   <h2>₹499</h2>
 
-  <a href="payment.html" style="padding:15px 30px; background:black; color:white; text-decoration:none;">
-    Buy Now
-  </a>
+  <button onclick="handlePayment()" style="padding:15px 30px; font-size:16px;">
+    Pay ₹499
+  </button>
+
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+  <script>
+  async function handlePayment() {
+    try {
+
+      // 👉 Create order from Cloudflare Worker
+      const res = await fetch("https://payment-worker.kpshakkir7.workers.dev/create-order");
+      const order = await res.json();
+
+      var options = {
+        key: "rzp_test_xxxxx", // 🔴 REPLACE WITH YOUR KEY
+        amount: order.amount,
+        currency: order.currency,
+        order_id: order.id,
+
+        name: "HRComply India",
+        description: "HR Compliance Checklist",
+
+        handler: function (response) {
+
+          const params = new URLSearchParams({
+            payment_id: response.razorpay_payment_id,
+            order_id: response.razorpay_order_id,
+            signature: response.razorpay_signature
+          });
+
+          window.location.href = "thankyou.html?" + params.toString();
+        }
+      };
+
+      var rzp = new Razorpay(options);
+      rzp.open();
+
+    } catch (err) {
+      alert("Order creation failed");
+    }
+  }
+  </script>
 
 </body>
 </html>
