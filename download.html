@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Download</title>
+</head>
+<body style="font-family: Arial; text-align:center; padding:60px;">
+
+  <h2>Your Download</h2>
+
+  <a id="download-link"
+     href="#"
+     style="padding:15px 30px; background:green; color:white; text-decoration:none;"
+     aria-disabled="true">
+     Download PDF
+  </a>
+
+  <p id="status">Verifying payment...</p>
+
+  <script>
+  window.onload = function () {
+
+    const isPaid = sessionStorage.getItem("paid");
+
+    const btn = document.getElementById("download-link");
+    const status = document.getElementById("status");
+
+    if (isPaid === "true") {
+
+      btn.href = "https://payment-worker.kpshakkir7.workers.dev/download?paid=true";
+      btn.removeAttribute("aria-disabled");
+
+      status.innerText = "Payment verified. Click to download.";
+
+    } else {
+
+      btn.href = "#";
+      btn.setAttribute("aria-disabled", "true");
+
+      status.innerText = "Payment not verified.";
+    }
+  };
+  </script>
+
+</body>
+</html>
