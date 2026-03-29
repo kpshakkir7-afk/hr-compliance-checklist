@@ -73,10 +73,16 @@
   .ft-s{background:var(--cream2);color:var(--muted);border:1px solid var(--border);}
 
   /* DOWNLOAD BUTTON */
-  .bdl{display:inline-flex;align-items:center;gap:7px;padding:11px 20px;background:var(--green);color:#fff;border:none;border-radius:8px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;cursor:pointer;white-space:nowrap;flex-shrink:0;text-decoration:none;transition:all .2s;}
-  .bdl:hover{background:var(--green-l);transform:translateY(-1px);}
-  .bdl:disabled,.bdl.done{background:#145c2f;cursor:default;pointer-events:none;}
-  .bdl svg{width:13px;height:13px;}
+  .frow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* KEY FIX */
+  gap: 16px;
+  padding: 16px 18px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
 
   /* HOW TO USE */
   .hcard{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:26px;margin-bottom:26px;animation:up .5s .6s ease both;}
@@ -175,18 +181,17 @@
     <div class="dlbody">
 
       <!-- File 1 -->
-      <div class="frow">
-        <div class="fico fi-a">📋</div>
-        <div class="finfo">
-          <div class="fname">HR_Compliance_Checklist_2026.html</div>
-          <div class="fdesc">Interactive checklist — 10 sections, 90+ items, penalty tables, legal citations, live progress tracking. Offline-ready.</div>
-          <div class="ftags">
-            <span class="ft ft-o">HTML FILE</span>
-            <span class="ft ft-s">~180 KB</span>
-            <span class="ft ft-g">MAIN PRODUCT</span>
-          </div>
-        </div>
-        <a href="./HR_Compliance_Checklist_India_2026.html" download class="bdl">
+      <div style="display:flex; gap:16px; align-items:center;">
+  <div class="fico fi-a">📋</div>
+
+  <div class="finfo">
+    <div class="fname">HR_Compliance_Checklist_India_2026.html</div>
+    <div class="fdesc">Interactive checklist...</div>
+    <div class="ftags">...</div>
+  </div>
+</div>
+
+<a href="/hr-compliance-checklist/HR_Compliance_Checklist_India_2026.html" download class="bdl">
   DOWNLOAD
 </a>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
