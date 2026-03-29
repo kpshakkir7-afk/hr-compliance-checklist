@@ -279,96 +279,25 @@
 
 <script>
 /* ─────────────────────────────────────────
-   READ URL PARAMS SET BY payment.html
+   CAPTURING RAZORPAY DATA AFTER REDIRECT
    ───────────────────────────────────────── */
-const p   = new URLSearchParams(window.location.search);
-const pid = p.get('pid')   || '';
-const oid = p.get('oid')   || '';
-const nm  = p.get('name')  || '';
-const em  = p.get('email') || '';
+const params = new URLSearchParams(window.location.search);
 
-/* Populate order details */
-document.getElementById('showPid').textContent   = pid || '—';
-document.getElementById('showOid').textContent   = oid || '—';
-document.getElementById('showBuyer').textContent = nm  || '—';
-document.getElementById('showEmail').textContent = em  || '—';
-document.getElementById('showDate').textContent  = new Date().toLocaleDateString('en-IN',{
-  day:'numeric', month:'long', year:'numeric', hour:'2-digit', minute:'2-digit'
-});
+// Razorpay's standard redirect keys
+const paymentId = params.get('razorpay_payment_id') || 'Verified';
+const buyerName = params.get('name') || 'Customer';
 
-/* Personalised greeting */
-const first = nm.split(' ')[0];
-if (first) document.getElementById('nameGreet').textContent = ', ' + first;
+/* Display the Payment ID on the screen */
+document.getElementById('showPid').textContent = paymentId;
 
-/* Upsell link with context */
-if (pid) {
-  document.getElementById('upLink').href =
-    'mailto:hello@lexwork.in?subject=Agency%20License%20Request&body=Hi%2C%20I%20just%20purchased%20(Payment%20ID%3A%20' + pid + ')%20and%20want%20the%20Agency%20License.';
-}
+/* Personalized Greeting */
+const firstName = buyerName.split(' ')[0];
+document.getElementById('nameGreet').textContent = ', ' + firstName;
 
-/* ─────────────────────────────────────────
-   CONFETTI
-   ───────────────────────────────────────── */
-(function(){
-  const wrap = document.getElementById('cfWrap');
-  const cols = ['#d4520f','#4ade80','#b8972a','#fff','#112244'];
-  for(let i=0;i<24;i++){
-    const el=document.createElement('div');
-    const sz=4+Math.random()*7;
-    el.className='cf';
-    el.style.cssText=[
-      'left:'+(Math.random()*100)+'%',
-      'top:'+(Math.random()*100)+'%',
-      'width:'+sz+'px',
-      'height:'+(sz*1.8)+'px',
-      'background:'+cols[Math.floor(Math.random()*cols.length)],
-      'opacity:'+(0.18+Math.random()*0.3),
-      'animation-duration:'+(2.5+Math.random()*4)+'s',
-      'animation-delay:'+(Math.random()*2)+'s'
-    ].join(';');
-    wrap.appendChild(el);
-  }
-})();
-
-/* ─────────────────────────────────────────
-   DOWNLOAD
-   Files must exist in same GitHub Pages repo root.
-   Fetch → blob → programmatic <a> click.
-   Falls back to direct link if fetch fails.
-   ───────────────────────────────────────── */
-async function dlFile(btn, src, saveAs) {
-  btn.innerHTML = '⏳ Preparing…';
-  btn.disabled  = true;
-
-  try {
-    const res = await fetch(src);
-    if (!res.ok) throw new Error(res.status);
-
-    const blob = await res.blob();
-    const url  = URL.createObjectURL(blob);
-    const a    = document.createElement('a');
-    a.href     = url;
-    a.download = saveAs;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-
-    btn.innerHTML = '✓ Downloaded!';
-    btn.classList.add('done');
-
-  } catch(_) {
-    /* Direct link fallback — browser will still trigger download */
-    const a    = document.createElement('a');
-    a.href     = src;
-    a.download = saveAs;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-
-    btn.innerHTML = '✓ Downloaded!';
-    btn.classList.add('done');
-  }
+/* Ensure the 'UpLink' uses the correct ID for support */
+const upLink = document.getElementById('upLink');
+if (upLink && paymentId) {
+  upLink.href += `?payment_id=${paymentId}`;
 }
 </script>
 </body>
