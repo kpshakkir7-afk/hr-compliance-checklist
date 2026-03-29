@@ -313,6 +313,25 @@ function startPay() {
 $('ph').addEventListener('input', function(){ this.value=this.value.replace(/\D/g,'').slice(0,10); });
 /* clear errors on re-focus */
 ['nm','em','ph'].forEach(id => $(id).addEventListener('focus',function(){ this.classList.remove('err'); clr(); }));
+
+  /* Inside your startPay() function in payment.html */
+const options = {
+    key: "rzp_live_SWgdMv2uMffOiO", // Ensure this matches your mode (Live/Test)
+    amount: "49900", 
+    currency: "INR",
+    name: "Lexwork India",
+    description: "2026 HR Compliance Checklist",
+    
+    // REPLACE the handler function with these two lines:
+    callback_url: "https://shakkirkp.github.io/hr-compliance-checklist/thankyou.html", 
+    redirect: true, 
+
+    prefill: {
+        name: d.n,
+        email: d.e,
+        contact: d.p
+    }
+};
 </script>
 </body>
 </html>
