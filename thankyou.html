@@ -3,217 +3,208 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thank You — Download Ready · Lexwork India</title>
+<title>Thank You — Download Your Files · Lexwork India</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
+  :root{
     --ink:#0d0c0a;--cream:#f7f2ea;--cream2:#ede7d9;
     --orange:#d4520f;--orange-h:#b8420a;--navy:#112244;--navy2:#1e3a6e;
-    --gold:#b8972a;--green:#1a6b3a;--green-l:#2d9e5a;
+    --green:#1a6b3a;--green-l:#2d9e5a;--gold:#b8972a;
     --muted:#6b6256;--border:#d9cfc0;--white:#fff;--red:#b91c1c;
   }
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
   html{scroll-behavior:smooth;}
   body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);min-height:100vh;display:flex;flex-direction:column;}
 
-  /* ── NAV ── */
+  /* NAV */
   .nav{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:var(--white);border-bottom:1px solid var(--border);}
-  .nav-logo{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:.15em;color:var(--navy);text-decoration:none;font-weight:500;}
-  .nav-logo span{color:var(--orange);}
-  .nav-tag{font-family:'DM Mono',monospace;font-size:11px;color:var(--green);background:#e8f9ef;border:1px solid #b8f0ce;padding:5px 14px;border-radius:20px;letter-spacing:.08em;}
+  .logo{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:.15em;color:var(--navy);text-decoration:none;font-weight:500;}
+  .logo span{color:var(--orange);}
+  .nav-pill{font-family:'DM Mono',monospace;font-size:11px;color:var(--green);background:#e8f9ef;border:1px solid #b8f0ce;padding:5px 14px;border-radius:20px;letter-spacing:.08em;}
 
-  /* ── PULSE BAR ── */
-  .pulse-bar{background:var(--green);color:#fff;padding:11px 24px;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;}
+  /* PULSE BAR */
+  .pbar{background:var(--green);color:#fff;padding:11px 24px;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;}
   .dot{width:8px;height:8px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite;flex-shrink:0;}
   @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
 
-  /* ── HERO ── */
+  /* HERO */
   .hero{background:var(--navy);padding:72px 48px 60px;text-align:center;position:relative;overflow:hidden;}
-  .hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 50% 50%,rgba(26,107,58,.24) 0%,transparent 70%);pointer-events:none;}
+  .hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 50% 50%,rgba(26,107,58,.22) 0%,transparent 70%);pointer-events:none;}
 
   /* confetti */
-  .confetti-wrap{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
-  .c-piece{position:absolute;border-radius:2px;animation:cfall linear infinite;}
-  @keyframes cfall{0%{transform:translateY(-10px) rotate(0deg);opacity:1;}100%{transform:translateY(320px) rotate(720deg);opacity:0;}}
+  .cf-wrap{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
+  .cf{position:absolute;border-radius:2px;animation:cfall linear infinite;}
+  @keyframes cfall{from{transform:translateY(-10px) rotate(0deg);opacity:1;}to{transform:translateY(320px) rotate(720deg);opacity:0;}}
 
-  .check-wrap{position:relative;z-index:1;width:96px;height:96px;margin:0 auto 28px;}
-  .check-circle{width:96px;height:96px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:40px;box-shadow:0 0 0 16px rgba(26,107,58,.15),0 0 0 32px rgba(26,107,58,.07);animation:pop .55s cubic-bezier(.34,1.56,.64,1) both;}
+  .ring{width:96px;height:96px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:42px;margin:0 auto 26px;position:relative;z-index:1;box-shadow:0 0 0 16px rgba(26,107,58,.15),0 0 0 34px rgba(26,107,58,.07);animation:pop .55s cubic-bezier(.34,1.56,.64,1) both;}
   @keyframes pop{from{opacity:0;transform:scale(.4);}to{opacity:1;transform:scale(1);}}
 
-  .hero-eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.22em;color:#4ade80;text-transform:uppercase;margin-bottom:14px;position:relative;z-index:1;animation:up .5s .25s ease both;}
-  .hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5.5vw,62px);font-weight:700;color:#fff;line-height:1.06;margin-bottom:14px;position:relative;z-index:1;animation:up .5s .35s ease both;}
-  .hero-h1 em{color:#4ade80;font-style:italic;}
-  .hero-sub{font-size:15px;color:rgba(255,255,255,.55);max-width:480px;margin:0 auto;line-height:1.72;position:relative;z-index:1;animation:up .5s .45s ease both;}
+  .h-ey{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.22em;color:#4ade80;text-transform:uppercase;margin-bottom:12px;position:relative;z-index:1;animation:up .5s .2s ease both;}
+  .h-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5.5vw,62px);font-weight:700;color:#fff;line-height:1.06;margin-bottom:12px;position:relative;z-index:1;animation:up .5s .3s ease both;}
+  .h-h1 em{color:#4ade80;font-style:italic;}
+  .h-sub{font-size:15px;color:rgba(255,255,255,.55);max-width:480px;margin:0 auto;line-height:1.72;position:relative;z-index:1;animation:up .5s .4s ease both;}
   @keyframes up{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
 
-  /* ── MAIN ── */
-  .main{max-width:820px;margin:0 auto;padding:48px 24px 80px;width:100%;flex:1;}
+  /* MAIN */
+  .main{max-width:800px;margin:0 auto;padding:48px 24px 80px;width:100%;flex:1;}
 
-  /* ── DOWNLOAD CARD ── */
-  .dl-card{background:var(--white);border:2px solid var(--green);border-radius:16px;overflow:hidden;margin-bottom:32px;box-shadow:0 8px 40px rgba(26,107,58,.1);animation:up .5s .5s ease both;}
-  .dl-head{background:var(--green);padding:18px 28px;display:flex;align-items:center;gap:14px;}
-  .dl-head-icon{font-size:24px;}
-  .dl-head-info{}
-  .dl-head-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;color:rgba(255,255,255,.6);text-transform:uppercase;margin-bottom:3px;}
-  .dl-head-name{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:700;color:#fff;}
-  .dl-body{padding:28px 28px 24px;}
+  /* DOWNLOAD CARD */
+  .dlcard{background:var(--white);border:2px solid var(--green);border-radius:16px;overflow:hidden;margin-bottom:30px;box-shadow:0 8px 40px rgba(26,107,58,.1);animation:up .5s .5s ease both;}
+  .dlhead{background:var(--green);padding:18px 26px;display:flex;align-items:center;gap:14px;}
+  .dhico{font-size:24px;}
+  .dhlbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;color:rgba(255,255,255,.6);text-transform:uppercase;margin-bottom:3px;}
+  .dhname{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:#fff;}
+  .dlbody{padding:24px 26px 20px;}
 
-  /* ── FILE ITEM ── */
-  .file{display:flex;align-items:center;gap:18px;padding:18px 20px;background:var(--cream);border:1px solid var(--border);border-radius:11px;margin-bottom:12px;transition:all .2s;}
-  .file:last-child{margin-bottom:0;}
-  .file:hover{border-color:var(--green);box-shadow:0 4px 18px rgba(26,107,58,.09);}
-  .f-icon{width:50px;height:50px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;}
-  .fi-main{background:#fff3e0;}
-  .fi-bonus{background:#eef2fb;}
-  .f-info{flex:1;min-width:0;}
-  .f-name{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:3px;}
-  .f-desc{font-size:12px;color:var(--muted);line-height:1.5;}
-  .f-tags{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap;}
-  .ftag{font-family:'DM Mono',monospace;font-size:9px;padding:2px 8px;border-radius:3px;letter-spacing:.05em;}
-  .ft-main{background:#fff3e0;color:#b85000;}
-  .ft-bonus{background:#e8f9ef;color:#166534;}
-  .ft-sz{background:var(--cream2);color:var(--muted);border:1px solid var(--border);}
+  /* FILE ROW */
+  .frow{display:flex;align-items:center;gap:16px;padding:16px 18px;background:var(--cream);border:1px solid var(--border);border-radius:10px;margin-bottom:10px;transition:all .2s;}
+  .frow:last-child{margin-bottom:0;}
+  .frow:hover{border-color:var(--green);box-shadow:0 4px 16px rgba(26,107,58,.09);}
+  .fico{width:46px;height:46px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+  .fi-a{background:#fff3e0;}
+  .fi-b{background:#eef2fb;}
+  .finfo{flex:1;min-width:0;}
+  .fname{font-size:14px;font-weight:600;color:var(--ink);margin-bottom:3px;}
+  .fdesc{font-size:12px;color:var(--muted);line-height:1.5;}
+  .ftags{display:flex;gap:5px;margin-top:6px;flex-wrap:wrap;}
+  .ft{font-family:'DM Mono',monospace;font-size:9px;padding:2px 7px;border-radius:3px;letter-spacing:.05em;}
+  .ft-o{background:#fff3e0;color:#b85000;}
+  .ft-g{background:#e8f9ef;color:#166534;}
+  .ft-s{background:var(--cream2);color:var(--muted);border:1px solid var(--border);}
 
-  .btn-dl{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;background:var(--green);color:#fff;border:none;border-radius:8px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;cursor:pointer;transition:all .2s;white-space:nowrap;flex-shrink:0;text-decoration:none;}
-  .btn-dl:hover{background:var(--green-l);transform:translateY(-1px);}
-  .btn-dl.done{background:#145c2f;cursor:default;pointer-events:none;}
-  .btn-dl svg{width:14px;height:14px;}
+  /* DOWNLOAD BUTTON */
+  .bdl{display:inline-flex;align-items:center;gap:7px;padding:11px 20px;background:var(--green);color:#fff;border:none;border-radius:8px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.08em;cursor:pointer;white-space:nowrap;flex-shrink:0;text-decoration:none;transition:all .2s;}
+  .bdl:hover{background:var(--green-l);transform:translateY(-1px);}
+  .bdl:disabled,.bdl.done{background:#145c2f;cursor:default;pointer-events:none;}
+  .bdl svg{width:13px;height:13px;}
 
-  /* ── HOW TO USE ── */
-  .how-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:28px;animation:up .5s .6s ease both;}
-  .sec-lbl{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
-  .sec-lbl::after{content:'';flex:1;height:1px;background:var(--border);}
-  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px;}
-  .step-n{width:34px;height:34px;background:var(--navy);color:#fff;border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:13px;font-weight:500;margin-bottom:10px;}
-  .step-t{font-weight:600;font-size:13.5px;color:var(--ink);margin-bottom:4px;}
-  .step-d{font-size:12px;color:var(--muted);line-height:1.55;}
+  /* HOW TO USE */
+  .hcard{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:26px;margin-bottom:26px;animation:up .5s .6s ease both;}
+  .slbl{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.17em;text-transform:uppercase;color:var(--orange);margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+  .slbl::after{content:'';flex:1;height:1px;background:var(--border);}
+  .sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:16px;}
+  .sn{width:32px;height:32px;background:var(--navy);color:#fff;border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:'DM Mono',monospace;font-size:12px;font-weight:500;margin-bottom:8px;}
+  .st{font-weight:600;font-size:13px;color:var(--ink);margin-bottom:3px;}
+  .sd{font-size:12px;color:var(--muted);line-height:1.55;}
 
-  /* ── ORDER DETAILS ── */
-  .order-card{background:var(--cream2);border:1px solid var(--border);border-radius:12px;padding:22px 26px;margin-bottom:28px;animation:up .5s .65s ease both;}
-  .order-row{display:flex;justify-content:space-between;align-items:flex-start;padding:9px 0;font-size:13px;border-bottom:1px solid var(--border);gap:16px;}
-  .order-row:last-child{border-bottom:none;}
-  .or-l{color:var(--muted);white-space:nowrap;}
-  .or-v{font-weight:600;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink);text-align:right;}
-  .or-v.g{color:var(--green);}
+  /* ORDER CARD */
+  .ocard{background:var(--cream2);border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:24px;animation:up .5s .65s ease both;}
+  .or{display:flex;justify-content:space-between;align-items:flex-start;padding:8px 0;font-size:13px;border-bottom:1px solid var(--border);gap:14px;}
+  .or:last-child{border-bottom:none;}
+  .ol{color:var(--muted);white-space:nowrap;}
+  .ov{font-weight:600;font-family:'DM Mono',monospace;font-size:11px;color:var(--ink);text-align:right;word-break:break-all;}
+  .ov.g{color:var(--green);}
 
-  /* ── UPSELL ── */
-  .upsell{background:var(--white);border:1px solid var(--border);border-left:4px solid var(--orange);border-radius:12px;padding:20px 24px;margin-bottom:24px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;animation:up .5s .7s ease both;}
-  .ups-icon{font-size:26px;flex-shrink:0;}
-  .ups-body{flex:1;}
-  .ups-title{font-weight:600;font-size:14px;color:var(--ink);margin-bottom:3px;}
-  .ups-sub{font-size:12.5px;color:var(--muted);}
-  .btn-ups{padding:9px 18px;background:var(--orange);color:#fff;border:none;border-radius:7px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.06em;cursor:pointer;transition:background .2s;white-space:nowrap;text-decoration:none;display:inline-block;flex-shrink:0;}
-  .btn-ups:hover{background:var(--orange-h);}
+  /* UPSELL */
+  .up-box{background:var(--white);border:1px solid var(--border);border-left:4px solid var(--orange);border-radius:12px;padding:18px 22px;margin-bottom:22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;animation:up .5s .7s ease both;}
+  .upi{font-size:24px;flex-shrink:0;}
+  .upb{flex:1;}
+  .upt{font-weight:600;font-size:14px;color:var(--ink);margin-bottom:3px;}
+  .ups{font-size:12.5px;color:var(--muted);}
+  .bup{padding:9px 16px;background:var(--orange);color:#fff;border:none;border-radius:7px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.06em;cursor:pointer;transition:background .2s;white-space:nowrap;text-decoration:none;display:inline-block;flex-shrink:0;}
+  .bup:hover{background:var(--orange-h);}
 
-  /* ── SHARE ── */
-  .share-card{background:var(--cream2);border:1px solid var(--border);border-radius:12px;padding:28px;text-align:center;margin-bottom:28px;animation:up .5s .75s ease both;}
-  .share-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--navy);margin-bottom:5px;}
-  .share-sub{font-size:13px;color:var(--muted);margin-bottom:18px;}
-  .share-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
-  .btn-sh{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;border-radius:7px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.07em;border:1.5px solid var(--border);background:var(--white);color:var(--ink);transition:all .2s;text-decoration:none;cursor:pointer;}
-  .btn-sh:hover{border-color:var(--navy);background:var(--navy);color:#fff;}
-  .btn-wa{border-color:#25d366;color:#25d366;}
-  .btn-wa:hover{background:#25d366;color:#fff;border-color:#25d366;}
-  .btn-li{border-color:#0077b5;color:#0077b5;}
-  .btn-li:hover{background:#0077b5;color:#fff;border-color:#0077b5;}
+  /* SHARE */
+  .shcard{background:var(--cream2);border:1px solid var(--border);border-radius:12px;padding:24px 26px;text-align:center;margin-bottom:24px;animation:up .5s .75s ease both;}
+  .sht{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--navy);margin-bottom:4px;}
+  .shs{font-size:13px;color:var(--muted);margin-bottom:16px;}
+  .shbtns{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;}
+  .bsh{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:7px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.07em;border:1.5px solid var(--border);background:var(--white);color:var(--ink);transition:all .2s;text-decoration:none;}
+  .bsh:hover{border-color:var(--navy);background:var(--navy);color:#fff;}
+  .wa{border-color:#25d366;color:#25d366;}
+  .wa:hover{background:#25d366;color:#fff;border-color:#25d366;}
+  .li{border-color:#0077b5;color:#0077b5;}
+  .li:hover{background:#0077b5;color:#fff;border-color:#0077b5;}
 
-  /* ── SUPPORT ── */
-  .support{background:var(--navy);border-radius:12px;padding:26px 30px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;animation:up .5s .8s ease both;}
-  .sup-icon{font-size:30px;flex-shrink:0;}
-  .sup-body{flex:1;}
-  .sup-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:#fff;margin-bottom:4px;}
-  .sup-sub{font-size:13px;color:rgba(255,255,255,.5);line-height:1.55;}
-  .btn-sup{padding:11px 22px;background:transparent;border:1.5px solid rgba(255,255,255,.22);color:#fff;border-radius:7px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.07em;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block;flex-shrink:0;}
-  .btn-sup:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4);}
+  /* SUPPORT */
+  .supbox{background:var(--navy);border-radius:12px;padding:24px 26px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;animation:up .5s .8s ease both;}
+  .supico{font-size:28px;flex-shrink:0;}
+  .supb{flex:1;}
+  .supt{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:#fff;margin-bottom:3px;}
+  .sups{font-size:13px;color:rgba(255,255,255,.5);line-height:1.5;}
+  .bsup{padding:10px 20px;background:transparent;border:1.5px solid rgba(255,255,255,.22);color:#fff;border-radius:7px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.07em;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block;flex-shrink:0;}
+  .bsup:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4);}
 
-  /* ── FOOTER ── */
-  footer{background:var(--ink);color:rgba(255,255,255,.32);padding:24px 48px;text-align:center;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.07em;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
-  footer a{color:rgba(255,255,255,.32);text-decoration:none;}
+  footer{background:var(--ink);color:rgba(255,255,255,.3);padding:22px 48px;text-align:center;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.06em;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+  footer a{color:rgba(255,255,255,.3);text-decoration:none;}
   footer a:hover{color:var(--orange);}
 
-  /* ── RESPONSIVE ── */
   @media(max-width:700px){
     .nav,.main{padding-left:20px;padding-right:20px;}
     .hero{padding:52px 20px 44px;}
-    .file{flex-wrap:wrap;}
-    .btn-dl{width:100%;justify-content:center;}
-    .steps{grid-template-columns:1fr 1fr;}
-    .dl-head,.dl-body{padding-left:20px;padding-right:20px;}
-    footer{padding:20px;flex-direction:column;text-align:center;gap:8px;}
+    .frow{flex-wrap:wrap;}
+    .bdl{width:100%;justify-content:center;}
+    .dlhead,.dlbody{padding-left:20px;padding-right:20px;}
+    .sgrid{grid-template-columns:1fr 1fr;}
+    footer{padding:20px;flex-direction:column;text-align:center;}
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="nav">
-  <a href="index.html" class="nav-logo">LEXWORK <span>·</span> INDIA</a>
-  <div class="nav-tag">✓ PAYMENT CONFIRMED</div>
+  <a href="index.html" class="logo">LEXWORK <span>·</span> INDIA</a>
+  <div class="nav-pill">✓ PAYMENT CONFIRMED</div>
 </nav>
 
-<!-- PULSE BAR -->
-<div class="pulse-bar">
+<div class="pbar">
   <div class="dot"></div>
   Payment Confirmed · Your Download is Ready
 </div>
 
-<!-- HERO -->
 <div class="hero">
   <div class="hero-glow"></div>
-  <div class="confetti-wrap" id="confetti"></div>
-  <div class="check-wrap">
-    <div class="check-circle">✓</div>
-  </div>
-  <div class="hero-eyebrow">Payment Confirmed via Razorpay</div>
-  <h1 class="hero-h1">Thank you! Your file is <em>ready.</em></h1>
-  <p class="hero-sub">Your 2026 HR Compliance Checklist is confirmed and available for instant download below. It's yours forever.</p>
+  <div class="cf-wrap" id="cfWrap"></div>
+  <div class="ring">✓</div>
+  <div class="h-ey">Payment Confirmed via Razorpay</div>
+  <h1 class="h-h1">Thank you<span id="nameGreet"></span>! Your file is <em>ready.</em></h1>
+  <p class="h-sub">Your 2026 HR Compliance Checklist is confirmed. Click the download buttons below — both files are yours forever.</p>
 </div>
 
-<!-- MAIN -->
 <main class="main">
 
   <!-- DOWNLOAD CARD -->
-  <div class="dl-card">
-    <div class="dl-head">
-      <div class="dl-head-icon">📦</div>
-      <div class="dl-head-info">
-        <div class="dl-head-label">Your Purchase · ₹499 · Verified</div>
-        <div class="dl-head-name">2026 HR Compliance Checklist — Indian Startups</div>
+  <div class="dlcard">
+    <div class="dlhead">
+      <div class="dhico">📦</div>
+      <div>
+        <div class="dhlbl">Your Purchase · Confirmed · ₹499</div>
+        <div class="dhname">2026 HR Compliance Checklist — Indian Startups</div>
       </div>
     </div>
-    <div class="dl-body">
+    <div class="dlbody">
 
-      <!-- File 1 — Main -->
-      <div class="file">
-        <div class="f-icon fi-main">📋</div>
-        <div class="f-info">
-          <div class="f-name">HR_Compliance_Checklist_2026.html</div>
-          <div class="f-desc">Interactive checklist — 10 sections, 90+ items, live progress tracking, penalty tables, legal citations. Works completely offline.</div>
-          <div class="f-tags">
-            <span class="ftag ft-main">HTML FILE</span>
-            <span class="ftag ft-sz">~180 KB</span>
-            <span class="ftag ft-bonus">MAIN PRODUCT</span>
+      <!-- File 1 -->
+      <div class="frow">
+        <div class="fico fi-a">📋</div>
+        <div class="finfo">
+          <div class="fname">HR_Compliance_Checklist_2026.html</div>
+          <div class="fdesc">Interactive checklist — 10 sections, 90+ items, penalty tables, legal citations, live progress tracking. Offline-ready.</div>
+          <div class="ftags">
+            <span class="ft ft-o">HTML FILE</span>
+            <span class="ft ft-s">~180 KB</span>
+            <span class="ft ft-g">MAIN PRODUCT</span>
           </div>
         </div>
-        <button class="btn-dl" id="btn1" onclick="dlFile(this,'HR_Compliance_Checklist_India_2026.html','HR_Compliance_Checklist_2026.html')">
+        <button class="bdl" id="b1" onclick="dlFile(this,'HR_Compliance_Checklist_India_2026.html','HR_Compliance_Checklist_2026.html')">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           DOWNLOAD
         </button>
       </div>
 
-      <!-- File 2 — Bonus -->
-      <div class="file">
-        <div class="f-icon fi-bonus">📖</div>
-        <div class="f-info">
-          <div class="f-name">Quick_Reference_Deadlines_2026.html</div>
-          <div class="f-desc">Printable one-page deadline calendar — all statutory due dates for FY 2025–26 with penalty amounts. Print-ready.</div>
-          <div class="f-tags">
-            <span class="ftag ft-main">HTML FILE</span>
-            <span class="ftag ft-sz">~40 KB</span>
-            <span class="ftag ft-bonus">BONUS INCLUDED</span>
+      <!-- File 2 -->
+      <div class="frow">
+        <div class="fico fi-b">📖</div>
+        <div class="finfo">
+          <div class="fname">Quick_Reference_Deadlines_2026.html</div>
+          <div class="fdesc">Printable one-page deadline calendar — all statutory due dates FY 2025–26 with penalties. Print-ready.</div>
+          <div class="ftags">
+            <span class="ft ft-o">HTML FILE</span>
+            <span class="ft ft-s">~40 KB</span>
+            <span class="ft ft-g">BONUS INCLUDED</span>
           </div>
         </div>
-        <button class="btn-dl" id="btn2" onclick="dlFile(this,'Quick_Reference_Deadlines_2026.html','Quick_Reference_Deadlines_2026.html')">
+        <button class="bdl" id="b2" onclick="dlFile(this,'Quick_Reference_Deadlines_2026.html','Quick_Reference_Deadlines_2026.html')">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           DOWNLOAD
         </button>
@@ -223,139 +214,162 @@
   </div>
 
   <!-- HOW TO USE -->
-  <div class="how-card">
-    <div class="sec-lbl">How to use your checklist</div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-n">01</div>
-        <div class="step-t">Download the file</div>
-        <div class="step-d">Click Download above. Save to your Desktop or Google Drive.</div>
-      </div>
-      <div class="step">
-        <div class="step-n">02</div>
-        <div class="step-t">Open in browser</div>
-        <div class="step-d">Double-click the HTML file. Opens in Chrome, Safari, Firefox — no internet needed.</div>
-      </div>
-      <div class="step">
-        <div class="step-n">03</div>
-        <div class="step-t">Check items off</div>
-        <div class="step-d">Click any item to mark it done. Progress auto-saves in your browser.</div>
-      </div>
-      <div class="step">
-        <div class="step-n">04</div>
-        <div class="step-t">Print for your CA</div>
-        <div class="step-d">Ctrl+P (or Cmd+P on Mac) for a clean PDF. Share with your legal team.</div>
-      </div>
+  <div class="hcard">
+    <div class="slbl">How to use your checklist</div>
+    <div class="sgrid">
+      <div><div class="sn">01</div><div class="st">Download the file</div><div class="sd">Click Download above. Save to Desktop or Google Drive.</div></div>
+      <div><div class="sn">02</div><div class="st">Open in browser</div><div class="sd">Double-click the HTML file. Chrome, Safari, Firefox — no internet needed.</div></div>
+      <div><div class="sn">03</div><div class="st">Check items off</div><div class="sd">Click any item to mark done. Progress auto-saves in browser.</div></div>
+      <div><div class="sn">04</div><div class="st">Print for your CA</div><div class="sd">Ctrl+P / Cmd+P for a clean PDF. Share with legal team.</div></div>
     </div>
   </div>
 
   <!-- ORDER DETAILS -->
-  <div class="order-card">
-    <div class="sec-lbl">Order Details</div>
-    <div class="order-row"><span class="or-l">Product</span><span class="or-v">2026 HR Compliance Checklist</span></div>
-    <div class="order-row"><span class="or-l">Amount Paid</span><span class="or-v g">₹499.00</span></div>
-    <div class="order-row"><span class="or-l">Payment Method</span><span class="or-v">Razorpay</span></div>
-    <div class="order-row"><span class="or-l">Date</span><span class="or-v" id="showDate">—</span></div>
-    <div class="order-row"><span class="or-l">License</span><span class="or-v">Single Company · Non-transferable</span></div>
-    <div class="order-row"><span class="or-l">GST Invoice</span><span class="or-v g">Emailed within 24 hrs</span></div>
+  <div class="ocard">
+    <div class="slbl">Order Details</div>
+    <div class="or"><span class="ol">Product</span><span class="ov">2026 HR Compliance Checklist</span></div>
+    <div class="or"><span class="ol">Amount Paid</span><span class="ov g">₹499.00</span></div>
+    <div class="or"><span class="ol">Payment ID</span><span class="ov" id="showPid">—</span></div>
+    <div class="or"><span class="ol">Order ID</span><span class="ov" id="showOid">—</span></div>
+    <div class="or"><span class="ol">Buyer</span><span class="ov" id="showBuyer">—</span></div>
+    <div class="or"><span class="ol">Email</span><span class="ov" id="showEmail">—</span></div>
+    <div class="or"><span class="ol">Date</span><span class="ov" id="showDate">—</span></div>
+    <div class="or"><span class="ol">License</span><span class="ov">Single Company · Non-transferable</span></div>
+    <div class="or"><span class="ol">GST Invoice</span><span class="ov g">Will be emailed within 24 hrs</span></div>
   </div>
 
   <!-- UPSELL -->
-  <div class="upsell">
-    <div class="ups-icon">🏢</div>
-    <div class="ups-body">
-      <div class="ups-title">Are you a CA firm or consultant?</div>
-      <div class="ups-sub">Upgrade to Agency License — use across unlimited client companies for ₹9,999 one-time.</div>
+  <div class="up-box">
+    <div class="upi">🏢</div>
+    <div class="upb">
+      <div class="upt">CA firm or consultant?</div>
+      <div class="ups">Upgrade to Agency License — unlimited client companies for ₹9,999 one-time.</div>
     </div>
-    <a class="btn-ups" href="mailto:hello@lexwork.in?subject=Agency License Request&body=Hi%2C%20I%20just%20purchased%20the%20standard%20license%20and%20would%20like%20to%20upgrade%20to%20the%20Agency%20License.">Upgrade →</a>
+    <a class="bup" id="upLink" href="mailto:hello@lexwork.in?subject=Agency License Request">Upgrade →</a>
   </div>
 
   <!-- SHARE -->
-  <div class="share-card">
-    <div class="share-title">Know a founder who needs this?</div>
-    <div class="share-sub">Help other Indian startups stay compliant. Share with your network — they'll thank you for it.</div>
-    <div class="share-btns">
-      <a class="btn-sh btn-wa" href="https://wa.me/?text=Just%20got%20the%202026%20HR%20Compliance%20Checklist%20for%20Indian%20Startups%20%E2%80%94%20covers%20EPF%2C%20POSH%2C%20DPDP%20Act%2C%2090%2B%20items%2C%20only%20%E2%82%B9499.%20Highly%20recommend%3A%20https%3A%2F%2Flexwork.in%2Fpayment.html" target="_blank" rel="noopener">💬 WhatsApp</a>
-      <a class="btn-sh btn-li" href="https://www.linkedin.com/sharing/share-offsite/?url=https://lexwork.in" target="_blank" rel="noopener">🔗 LinkedIn</a>
-      <a class="btn-sh" href="https://twitter.com/intent/tweet?text=Just%20got%20the%202026%20HR%20Compliance%20Checklist%20for%20Indian%20startups.%2090%2B%20items%2C%20real%20penalties%2C%20interactive.%20Only%20%E2%82%B9499%20%F0%9F%9A%80%20https%3A%2F%2Flexwork.in" target="_blank" rel="noopener">🐦 X / Twitter</a>
+  <div class="shcard">
+    <div class="sht">Know a founder who needs this?</div>
+    <div class="shs">Help other Indian startups stay compliant — share with your network.</div>
+    <div class="shbtns">
+      <a class="bsh wa" href="https://wa.me/?text=Just%20got%20the%202026%20HR%20Compliance%20Checklist%20for%20Indian%20Startups%20%E2%80%94%2090%2B%20items%2C%20real%20penalties%2C%20interactive.%20Only%20%E2%82%B9499%3A%20https%3A%2F%2Flexwork.in%2Fpayment.html" target="_blank" rel="noopener">💬 WhatsApp</a>
+      <a class="bsh li" href="https://www.linkedin.com/sharing/share-offsite/?url=https://lexwork.in" target="_blank" rel="noopener">🔗 LinkedIn</a>
+      <a class="bsh" href="https://twitter.com/intent/tweet?text=Just%20got%20the%202026%20HR%20Compliance%20Checklist%20for%20Indian%20startups.%2090%2B%20items%2C%20real%20penalties%2C%20interactive.%20Only%20%E2%82%B9499!%20https%3A%2F%2Flexwork.in" target="_blank" rel="noopener">🐦 X / Twitter</a>
     </div>
   </div>
 
   <!-- SUPPORT -->
-  <div class="support">
-    <div class="sup-icon">🙋</div>
-    <div class="sup-body">
-      <div class="sup-title">Need help with anything?</div>
-      <div class="sup-sub">Trouble opening the file? Questions about specific compliance items? We reply within 24 hours.</div>
+  <div class="supbox">
+    <div class="supico">🙋</div>
+    <div class="supb">
+      <div class="supt">Need help?</div>
+      <div class="sups">File won't open? Questions about compliance items? We reply within 24 hours.</div>
     </div>
-    <a class="btn-sup" href="mailto:hello@lexwork.in">hello@lexwork.in</a>
+    <a class="bsup" href="mailto:hello@lexwork.in">hello@lexwork.in</a>
   </div>
 
 </main>
 
 <footer>
   <span>© 2026 Lexwork India · All Rights Reserved</span>
-  <span style="display:flex;gap:20px;"><a href="index.html">Home</a><a href="mailto:hello@lexwork.in">Support</a></span>
-  <span>Disclaimer: For informational use only. Not legal advice.</span>
+  <span style="display:flex;gap:18px;"><a href="index.html">Home</a><a href="mailto:hello@lexwork.in">Support</a></span>
+  <span>For informational use only. Not legal advice.</span>
 </footer>
 
 <script>
-  /* ── DATE ── */
-  document.getElementById('showDate').textContent = new Date().toLocaleDateString('en-IN', {
-    day: 'numeric', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit'
-  });
+/* ─────────────────────────────────────────
+   READ URL PARAMS SET BY payment.html
+   ───────────────────────────────────────── */
+const p   = new URLSearchParams(window.location.search);
+const pid = p.get('pid')   || '';
+const oid = p.get('oid')   || '';
+const nm  = p.get('name')  || '';
+const em  = p.get('email') || '';
 
-  /* ── CONFETTI ── */
-  (function() {
-    const wrap   = document.getElementById('confetti');
-    const colors = ['#d4520f','#4ade80','#b8972a','#ffffff','#112244'];
-    for (let i = 0; i < 22; i++) {
-      const el  = document.createElement('div');
-      const sz  = 4 + Math.random() * 6;
-      el.className = 'c-piece';
-      el.style.cssText = [
-        'left:'    + (Math.random() * 100) + '%',
-        'top:'     + (-10 + Math.random() * 40) + '%',
-        'width:'   + sz + 'px',
-        'height:'  + (sz * 1.6) + 'px',
-        'background:' + colors[Math.floor(Math.random() * colors.length)],
-        'opacity:' + (.25 + Math.random() * .35),
-        'animation-duration:' + (2.5 + Math.random() * 3.5) + 's',
-        'animation-delay:'    + (Math.random() * 2) + 's'
-      ].join(';');
-      wrap.appendChild(el);
-    }
-  })();
+/* Populate order details */
+document.getElementById('showPid').textContent   = pid || '—';
+document.getElementById('showOid').textContent   = oid || '—';
+document.getElementById('showBuyer').textContent = nm  || '—';
+document.getElementById('showEmail').textContent = em  || '—';
+document.getElementById('showDate').textContent  = new Date().toLocaleDateString('en-IN',{
+  day:'numeric', month:'long', year:'numeric', hour:'2-digit', minute:'2-digit'
+});
 
-  /* ── DOWNLOAD ── */
-  /* Files must be in the same GitHub Pages repo root */
-  async function dlFile(btn, srcFile, saveAs) {
-    const orig = btn.innerHTML;
-    btn.innerHTML = '⏳ Preparing…';
-    btn.disabled = true;
+/* Personalised greeting */
+const first = nm.split(' ')[0];
+if (first) document.getElementById('nameGreet').textContent = ', ' + first;
 
-    try {
-      const res = await fetch(srcFile);
-      if (!res.ok) throw new Error(res.status);
-      const blob = await res.blob();
-      const url  = URL.createObjectURL(blob);
-      const a    = document.createElement('a');
-      a.href = url; a.download = saveAs;
-      document.body.appendChild(a); a.click();
-      document.body.removeChild(a);
-      URL.revokeObjectURL(url);
-      btn.innerHTML = '✓ Downloaded!';
-      btn.classList.add('done');
-    } catch (_) {
-      /* Direct link fallback */
-      const a = document.createElement('a');
-      a.href = srcFile; a.download = saveAs;
-      document.body.appendChild(a); a.click();
-      document.body.removeChild(a);
-      btn.innerHTML = '✓ Downloaded!';
-      btn.classList.add('done');
-    }
+/* Upsell link with context */
+if (pid) {
+  document.getElementById('upLink').href =
+    'mailto:hello@lexwork.in?subject=Agency%20License%20Request&body=Hi%2C%20I%20just%20purchased%20(Payment%20ID%3A%20' + pid + ')%20and%20want%20the%20Agency%20License.';
+}
+
+/* ─────────────────────────────────────────
+   CONFETTI
+   ───────────────────────────────────────── */
+(function(){
+  const wrap = document.getElementById('cfWrap');
+  const cols = ['#d4520f','#4ade80','#b8972a','#fff','#112244'];
+  for(let i=0;i<24;i++){
+    const el=document.createElement('div');
+    const sz=4+Math.random()*7;
+    el.className='cf';
+    el.style.cssText=[
+      'left:'+(Math.random()*100)+'%',
+      'top:'+(Math.random()*100)+'%',
+      'width:'+sz+'px',
+      'height:'+(sz*1.8)+'px',
+      'background:'+cols[Math.floor(Math.random()*cols.length)],
+      'opacity:'+(0.18+Math.random()*0.3),
+      'animation-duration:'+(2.5+Math.random()*4)+'s',
+      'animation-delay:'+(Math.random()*2)+'s'
+    ].join(';');
+    wrap.appendChild(el);
   }
+})();
+
+/* ─────────────────────────────────────────
+   DOWNLOAD
+   Files must exist in same GitHub Pages repo root.
+   Fetch → blob → programmatic <a> click.
+   Falls back to direct link if fetch fails.
+   ───────────────────────────────────────── */
+async function dlFile(btn, src, saveAs) {
+  btn.innerHTML = '⏳ Preparing…';
+  btn.disabled  = true;
+
+  try {
+    const res = await fetch(src);
+    if (!res.ok) throw new Error(res.status);
+
+    const blob = await res.blob();
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href     = url;
+    a.download = saveAs;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    btn.innerHTML = '✓ Downloaded!';
+    btn.classList.add('done');
+
+  } catch(_) {
+    /* Direct link fallback — browser will still trigger download */
+    const a    = document.createElement('a');
+    a.href     = src;
+    a.download = saveAs;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    btn.innerHTML = '✓ Downloaded!';
+    btn.classList.add('done');
+  }
+}
 </script>
 </body>
 </html>
