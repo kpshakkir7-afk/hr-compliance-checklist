@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Secure Checkout — Lexwork India</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 <style>
   :root {
     --ink:#0d0c0a;--cream:#f7f2ea;--cream2:#ede7d9;
@@ -15,274 +14,284 @@
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
   body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);min-height:100vh;display:flex;flex-direction:column;}
 
+  /* ── NAV ── */
   .nav{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:64px;background:var(--white);border-bottom:1px solid var(--border);}
-  .nav-logo{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:.15em;color:var(--navy);text-decoration:none;}
+  .nav-logo{font-family:'DM Mono',monospace;font-size:13px;letter-spacing:.15em;color:var(--navy);text-decoration:none;font-weight:500;}
   .nav-logo span{color:var(--orange);}
-  .nav-back{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:.08em;transition:color .2s;}
+  .nav-back{font-family:'DM Mono',monospace;font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:.08em;transition:color .2s;display:flex;align-items:center;gap:5px;}
   .nav-back:hover{color:var(--ink);}
 
+  /* ── TRUST BAR ── */
   .trust-bar{background:var(--navy);padding:10px 48px;display:flex;align-items:center;justify-content:center;gap:28px;flex-wrap:wrap;}
   .ti{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(255,255,255,.5);display:flex;align-items:center;gap:5px;}
   .ti strong{color:rgba(255,255,255,.85);}
 
-  .page{flex:1;display:grid;grid-template-columns:1fr 420px;max-width:1080px;margin:0 auto;width:100%;padding:48px 24px;gap:0;}
+  /* ── PAGE GRID ── */
+  .page{flex:1;display:grid;grid-template-columns:1fr 420px;max-width:1080px;margin:0 auto;width:100%;padding:48px 24px;gap:0;align-items:start;}
 
-  /* LEFT */
+  /* ── LEFT — SUMMARY ── */
   .summary{padding-right:48px;}
   .eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:14px;}
-  .sum-title{font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:700;color:var(--navy);line-height:1.15;margin-bottom:8px;}
+  .sum-title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--navy);line-height:1.12;margin-bottom:8px;}
   .sum-title em{color:var(--orange);font-style:italic;}
   .sum-sub{font-size:14px;color:var(--muted);line-height:1.65;margin-bottom:32px;font-weight:300;}
 
   .prod-card{background:var(--white);border:1px solid var(--border);border-radius:14px;overflow:hidden;margin-bottom:22px;}
-  .prod-head{background:var(--navy);padding:16px 20px;display:flex;align-items:center;gap:12px;}
-  .prod-icon{width:40px;height:40px;background:rgba(255,255,255,.12);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;}
-  .prod-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:#fff;}
-  .prod-tag{font-family:'DM Mono',monospace;font-size:9px;color:rgba(255,255,255,.5);letter-spacing:.1em;margin-top:2px;}
-  .prod-rows{padding:0 20px;}
-  .prod-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border);font-size:13.5px;}
-  .prod-row:last-child{border-bottom:none;}
+  .prod-head{background:var(--navy);padding:16px 22px;display:flex;align-items:center;gap:14px;}
+  .prod-icon{width:42px;height:42px;background:rgba(255,255,255,.12);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+  .prod-name{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:#fff;}
+  .prod-tag{font-family:'DM Mono',monospace;font-size:9px;color:rgba(255,255,255,.45);letter-spacing:.12em;margin-top:3px;text-transform:uppercase;}
+  .prod-rows{padding:0 22px;}
+  .pr{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--border);font-size:13.5px;}
+  .pr:last-child{border-bottom:none;}
   .pr-l{color:var(--muted);}
   .pr-v{font-weight:600;font-family:'DM Mono',monospace;font-size:12px;color:var(--ink);}
   .pr-v.g{color:var(--green);}
-  .pr-v.big{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--orange);font-weight:700;}
-  .pr-v.strike{text-decoration:line-through;color:var(--muted);}
+  .pr-v.strike{text-decoration:line-through;color:var(--muted);font-weight:400;}
+  .pr-v.big{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--orange);font-weight:700;}
 
   .features{list-style:none;margin-bottom:22px;}
-  .features li{display:flex;gap:10px;padding:8px 0;font-size:13px;color:var(--muted);border-bottom:1px solid var(--border);}
+  .features li{display:flex;gap:10px;padding:9px 0;font-size:13px;color:var(--muted);border-bottom:1px solid var(--border);}
   .features li:last-child{border-bottom:none;}
   .ck{color:var(--green);font-weight:700;flex-shrink:0;}
 
   .guarantee{background:var(--cream2);border:1px solid var(--border);border-radius:10px;padding:16px 18px;display:flex;gap:12px;align-items:flex-start;}
-  .gu-icon{font-size:20px;flex-shrink:0;}
-  .gu-title{font-size:13px;font-weight:600;margin-bottom:3px;}
+  .gu-icon{font-size:20px;flex-shrink:0;margin-top:1px;}
+  .gu-title{font-size:13px;font-weight:600;margin-bottom:3px;color:var(--ink);}
   .gu-text{font-size:12px;color:var(--muted);line-height:1.55;}
 
-  /* RIGHT */
-  .checkout{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:36px 32px;box-shadow:0 8px 40px rgba(13,12,10,.08);align-self:start;position:sticky;top:24px;}
-  .cc-title{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--navy);margin-bottom:6px;}
-  .cc-sub{font-size:13px;color:var(--muted);margin-bottom:22px;line-height:1.5;}
-  .price-row{display:flex;align-items:baseline;gap:10px;margin-bottom:4px;}
-  .p-cur{font-family:'DM Mono',monospace;font-size:22px;color:var(--orange);}
-  .p-num{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:700;color:var(--ink);line-height:1;}
+  /* ── RIGHT — CHECKOUT ── */
+  .checkout{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:36px 32px;box-shadow:0 8px 40px rgba(13,12,10,.08);position:sticky;top:24px;}
+
+  .cc-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:700;color:var(--navy);margin-bottom:6px;}
+  .cc-sub{font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.5;}
+
+  .price-row{display:flex;align-items:baseline;gap:8px;margin-bottom:4px;}
+  .p-cur{font-family:'DM Mono',monospace;font-size:22px;color:var(--orange);font-weight:500;}
+  .p-num{font-family:'Cormorant Garamond',serif;font-size:58px;font-weight:700;color:var(--ink);line-height:1;}
   .p-orig{font-family:'DM Mono',monospace;font-size:13px;color:var(--muted);text-decoration:line-through;}
-  .p-save{display:inline-block;background:#e8f9ef;color:var(--green);font-family:'DM Mono',monospace;font-size:10px;padding:3px 10px;border-radius:20px;letter-spacing:.06em;margin-bottom:22px;}
+  .p-save{display:inline-flex;align-items:center;gap:6px;background:#e8f9ef;color:var(--green);font-family:'DM Mono',monospace;font-size:10px;padding:4px 12px;border-radius:20px;letter-spacing:.06em;margin-bottom:28px;border:1px solid #b8f0ce;}
 
-  .inp-group{margin-bottom:14px;}
-  .inp-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;display:block;}
-  .inp{width:100%;padding:12px 14px;border:1.5px solid var(--border);border-radius:8px;font-family:'DM Sans',sans-serif;font-size:14px;color:var(--ink);background:var(--cream);outline:none;transition:border-color .2s;}
-  .inp:focus{border-color:var(--navy);background:var(--white);}
-  .inp.err{border-color:var(--red);}
+  /* ── WHAT'S INCLUDED ── */
+  .included{margin-bottom:28px;}
+  .incl-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+  .incl-label::after{content:'';flex:1;height:1px;background:var(--border);}
+  .incl-list{list-style:none;}
+  .incl-list li{display:flex;align-items:flex-start;gap:9px;padding:7px 0;font-size:13px;color:var(--ink);border-bottom:1px solid rgba(0,0,0,.04);}
+  .incl-list li:last-child{border-bottom:none;}
+  .il-ck{color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px;}
 
-  .divider{height:1px;background:var(--border);margin:18px 0;}
+  /* ── PAY BUTTON ── */
+  .btn-pay{
+    display:flex;align-items:center;justify-content:center;gap:12px;
+    width:100%;padding:20px;
+    background:var(--orange);color:#fff;border:none;border-radius:10px;
+    font-family:'DM Sans',sans-serif;font-size:18px;font-weight:700;
+    cursor:pointer;transition:all .25s;
+    box-shadow:0 8px 28px rgba(212,82,15,.3);
+    text-decoration:none;
+    position:relative;overflow:hidden;
+  }
+  .btn-pay::before{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(rgba(255,255,255,.12),transparent);
+  }
+  .btn-pay:hover{background:var(--orange-h);transform:translateY(-2px);box-shadow:0 14px 40px rgba(212,82,15,.42);}
+  .btn-pay:active{transform:translateY(0);}
+  .btn-pay-icon{font-size:20px;position:relative;}
+  .btn-pay-text{position:relative;}
+  .btn-pay-sub{font-size:11px;font-weight:400;opacity:.8;font-family:'DM Mono',monospace;letter-spacing:.06em;}
 
-  .btn-pay{width:100%;padding:18px;background:var(--orange);color:#fff;border:none;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:17px;font-weight:700;cursor:pointer;transition:all .25s;box-shadow:0 8px 28px rgba(212,82,15,.28);display:flex;align-items:center;justify-content:center;gap:10px;margin-top:18px;}
-  .btn-pay:hover:not(:disabled){background:var(--orange-h);transform:translateY(-2px);box-shadow:0 12px 36px rgba(212,82,15,.38);}
-  .btn-pay:disabled{opacity:.65;cursor:not-allowed;transform:none;}
-  .spinner{width:18px;height:18px;border:2.5px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite;display:none;flex-shrink:0;}
-  .btn-pay.loading .btn-txt{display:none;}
-  .btn-pay.loading .spinner{display:block;}
-  @keyframes spin{to{transform:rotate(360deg);}}
+  .divider{height:1px;background:var(--border);margin:20px 0;}
 
-  .status{border-radius:8px;padding:12px 16px;margin-top:14px;font-size:13px;line-height:1.5;display:none;}
-  .status.show{display:block;}
-  .status.error{background:#fff0f0;border:1px solid #f5b8b8;color:var(--red);}
-  .status.info{background:#f0f4fb;border:1px solid #b8c8f0;color:var(--navy);}
+  /* ── PAYMENT METHODS ── */
+  .methods{margin-bottom:16px;}
+  .methods-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;text-align:center;}
+  .methods-row{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;}
+  .method-pill{font-family:'DM Mono',monospace;font-size:10px;padding:5px 12px;border-radius:5px;border:1px solid var(--border);background:var(--cream);color:var(--muted);letter-spacing:.06em;font-weight:500;}
+  .method-pill.highlight{border-color:var(--orange);color:var(--orange);background:#fff8f4;}
 
-  .trust-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;}
-  .tr-item{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.05em;}
-  .rzp-note{text-align:center;margin-top:12px;font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.05em;}
+  .rzp-row{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:14px;}
+  .rzp-text{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.05em;}
+  .rzp-badge{background:var(--navy);color:#fff;font-family:'DM Mono',monospace;font-size:9px;padding:3px 8px;border-radius:4px;letter-spacing:.08em;}
 
-  footer{background:var(--ink);color:rgba(255,255,255,.35);padding:22px 48px;text-align:center;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.07em;}
+  /* ── BELOW BTN NOTE ── */
+  .below-note{text-align:center;margin-top:14px;font-size:11.5px;color:var(--muted);line-height:1.6;}
+  .below-note a{color:var(--orange);text-decoration:none;}
+  .below-note a:hover{text-decoration:underline;}
 
+  /* ── FOOTER ── */
+  footer{background:var(--ink);color:rgba(255,255,255,.32);padding:24px 48px;text-align:center;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.07em;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  footer a{color:rgba(255,255,255,.32);text-decoration:none;}
+  footer a:hover{color:var(--orange);}
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:translateY(0);}}
+  .checkout{animation:fadeUp .5s .1s ease both;}
+  .summary{animation:fadeUp .5s ease both;}
+
+  /* ── RESPONSIVE ── */
   @media(max-width:860px){
     .nav,.trust-bar{padding-left:20px;padding-right:20px;}
     .page{grid-template-columns:1fr;padding:24px 20px;}
-    .summary{padding-right:0;margin-bottom:32px;}
-    .checkout{position:static;}
-    footer{padding:22px 20px;}
+    .summary{padding-right:0;margin-bottom:32px;order:2;}
+    .checkout{position:static;order:1;}
+    footer{padding:20px;flex-direction:column;text-align:center;}
+  }
+  @media(max-width:400px){
+    .p-num{font-size:46px;}
+    .btn-pay{font-size:16px;padding:17px;}
   }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav class="nav">
   <a href="index.html" class="nav-logo">LEXWORK <span>·</span> INDIA</a>
-  <a href="index.html" class="nav-back">← Back</a>
+  <a href="index.html" class="nav-back">← Back to product</a>
 </nav>
 
+<!-- TRUST BAR -->
 <div class="trust-bar">
-  <div class="ti">🔒 <strong>256-bit SSL Encrypted</strong></div>
-  <div class="ti">⚡ <strong>Instant</strong> delivery after payment</div>
-  <div class="ti">🏦 Secured by <strong>Razorpay</strong></div>
+  <div class="ti">🔒 <strong>100% Secure</strong> Razorpay Payment</div>
+  <div class="ti">⚡ <strong>Instant</strong> download after payment</div>
   <div class="ti">🇮🇳 UPI · Cards · NetBanking · Wallets</div>
+  <div class="ti">✅ No account needed</div>
 </div>
 
+<!-- PAGE -->
 <div class="page">
 
-  <!-- LEFT -->
+  <!-- ── LEFT — ORDER SUMMARY ── -->
   <div class="summary">
     <div class="eyebrow">Order Summary</div>
     <h1 class="sum-title">Secure <em>Checkout</em></h1>
-    <p class="sum-sub">You're one step away from complete HR compliance clarity for your Indian startup.</p>
+    <p class="sum-sub">You're one step away from complete HR compliance clarity for your Indian startup. Pay securely and download instantly.</p>
 
     <div class="prod-card">
       <div class="prod-head">
         <div class="prod-icon">📋</div>
         <div>
           <div class="prod-name">2026 HR Compliance Checklist</div>
-          <div class="prod-tag">DIGITAL PRODUCT · INSTANT DOWNLOAD · ONE-TIME PURCHASE</div>
+          <div class="prod-tag">Digital Product · Instant Download · One-Time Purchase</div>
         </div>
       </div>
       <div class="prod-rows">
-        <div class="prod-row"><span class="pr-l">Product</span><span class="pr-v">HR Compliance Checklist 2026</span></div>
-        <div class="prod-row"><span class="pr-l">License</span><span class="pr-v">Single Company · Non-transferable</span></div>
-        <div class="prod-row"><span class="pr-l">Delivery</span><span class="pr-v g">Instant — after payment</span></div>
-        <div class="prod-row"><span class="pr-l">Regular Price</span><span class="pr-v strike">₹1,499</span></div>
-        <div class="prod-row"><span class="pr-l">You Pay</span><span class="pr-v big">₹499</span></div>
+        <div class="pr"><span class="pr-l">Product</span><span class="pr-v">HR Compliance Checklist 2026</span></div>
+        <div class="pr"><span class="pr-l">License</span><span class="pr-v">Single Company · Non-transferable</span></div>
+        <div class="pr"><span class="pr-l">Format</span><span class="pr-v">Interactive HTML · Works offline</span></div>
+        <div class="pr"><span class="pr-l">Delivery</span><span class="pr-v g">⚡ Instant — after payment</span></div>
+        <div class="pr"><span class="pr-l">Regular Price</span><span class="pr-v strike">₹1,499</span></div>
+        <div class="pr"><span class="pr-l">You Pay Today</span><span class="pr-v big">₹499</span></div>
       </div>
     </div>
 
     <ul class="features">
-      <li><span class="ck">✓</span> Interactive HTML checklist — 90+ items, 10 sections</li>
-      <li><span class="ck">✓</span> Penalty tables with exact amounts & due dates</li>
-      <li><span class="ck">✓</span> Legal citations for every item</li>
-      <li><span class="ck">✓</span> Updated for FY 2025-26 · DPDP Act 2023</li>
-      <li><span class="ck">✓</span> Works offline · Print-to-PDF · No subscription</li>
-      <li><span class="ck">✓</span> Bonus: Quick Reference Deadline Calendar</li>
+      <li><span class="ck">✓</span> Interactive HTML checklist — 90+ items across 10 sections</li>
+      <li><span class="ck">✓</span> Penalty tables with exact amounts & statutory due dates</li>
+      <li><span class="ck">✓</span> Legal citations — exact section of every law referenced</li>
+      <li><span class="ck">✓</span> Live progress tracking — auto-saves in browser</li>
+      <li><span class="ck">✓</span> Updated for FY 2025–26 · DPDP Act 2023</li>
+      <li><span class="ck">✓</span> Print-to-PDF · Works offline · No subscription</li>
+      <li><span class="ck">✓</span> Bonus: Quick Reference Deadline Calendar (all due dates)</li>
     </ul>
 
     <div class="guarantee">
       <div class="gu-icon">🛡️</div>
       <div>
-        <div class="gu-title">Secure Payment Guarantee</div>
-        <div class="gu-text">Processed entirely by Razorpay. We never store card details. Download link available immediately after payment.</div>
+        <div class="gu-title">Safe & Instant Delivery</div>
+        <div class="gu-text">Payment is processed by Razorpay. After you pay, you'll be taken directly to the download page. No account, no waiting, no spam.</div>
       </div>
     </div>
   </div>
 
-  <!-- RIGHT -->
+  <!-- ── RIGHT — CHECKOUT CARD ── -->
   <div class="checkout">
     <div class="cc-title">Complete your order</div>
-    <div class="cc-sub">Enter your details and pay securely via Razorpay.</div>
+    <div class="cc-sub">Click below to pay securely via Razorpay — UPI, cards, netbanking, and wallets accepted.</div>
 
     <div class="price-row">
       <span class="p-cur">₹</span>
       <span class="p-num">499</span>
       <span class="p-orig">₹1,499</span>
     </div>
-    <span class="p-save">YOU SAVE ₹1,000 · 67% OFF</span>
+    <div class="p-save">🎉 YOU SAVE ₹1,000 · 67% OFF · LAUNCH PRICE</div>
 
-    <div class="inp-group">
-      <label class="inp-label" for="fname">Full Name</label>
-      <input class="inp" id="fname" type="text" placeholder="Arjun Krishnamurthy" autocomplete="name">
+    <!-- WHAT'S INCLUDED MINI -->
+    <div class="included">
+      <div class="incl-label">What you get</div>
+      <ul class="incl-list">
+        <li><span class="il-ck">✓</span> Main Checklist — 90+ items, 10 sections</li>
+        <li><span class="il-ck">✓</span> Penalty tables & legal citations</li>
+        <li><span class="il-ck">✓</span> Bonus: Deadline Calendar 2026</li>
+        <li><span class="il-ck">✓</span> Yours forever · No subscription</li>
+      </ul>
     </div>
-    <div class="inp-group">
-      <label class="inp-label" for="femail">Email Address</label>
-      <input class="inp" id="femail" type="email" placeholder="arjun@startup.in" autocomplete="email">
-    </div>
-    <div class="inp-group">
-      <label class="inp-label" for="fphone">Mobile Number</label>
-      <input class="inp" id="fphone" type="tel" placeholder="9876543210" maxlength="10" autocomplete="tel">
-    </div>
+
+    <!-- PAY BUTTON — pure redirect to razorpay.me -->
+    <a
+      class="btn-pay"
+      href="https://razorpay.me/@kottupurathputhiyapurayilshak?amount=n%2FUUsdogj%2F7sarE2WD13qg%3D%3D"
+      target="_blank"
+      rel="noopener"
+      id="payBtn"
+      onclick="handlePayClick()"
+    >
+      <span class="btn-pay-icon">🔒</span>
+      <div>
+        <div class="btn-pay-text">Pay ₹499 via Razorpay</div>
+        <div class="btn-pay-sub">UPI · Cards · NetBanking · Wallets</div>
+      </div>
+    </a>
 
     <div class="divider"></div>
 
-    <button class="btn-pay" id="payBtn" onclick="pay()">
-      <div class="spinner"></div>
-      <span class="btn-txt">🔒 Pay ₹499 Securely</span>
-    </button>
-
-    <div class="status" id="statusBox"></div>
-
-    <div class="trust-row">
-      <span class="tr-item">🔒 SSL Encrypted</span>
-      <span class="tr-item">🏦 Razorpay</span>
-      <span class="tr-item">⚡ UPI Ready</span>
-      <span class="tr-item">💳 All Cards</span>
+    <!-- PAYMENT METHODS -->
+    <div class="methods">
+      <div class="methods-label">Accepted payment methods</div>
+      <div class="methods-row">
+        <span class="method-pill highlight">⚡ UPI</span>
+        <span class="method-pill">💳 Credit Card</span>
+        <span class="method-pill">🏦 Debit Card</span>
+        <span class="method-pill">🌐 NetBanking</span>
+        <span class="method-pill">👛 Wallets</span>
+      </div>
     </div>
-    <div class="rzp-note">Powered by Razorpay · PCI DSS Compliant</div>
+
+    <div class="rzp-row">
+      <span class="rzp-text">Powered by</span>
+      <span class="rzp-badge">RAZORPAY</span>
+      <span class="rzp-text">· PCI DSS Compliant · 256-bit SSL</span>
+    </div>
+
+    <div class="below-note">
+      After payment, you'll be redirected to the download page.<br>
+      Need help? <a href="mailto:hello@lexwork.in">hello@lexwork.in</a>
+    </div>
   </div>
 
 </div>
 
-<footer>© 2026 Lexwork India · All Rights Reserved · For informational use only. Not legal advice.</footer>
+<!-- FOOTER -->
+<footer>
+  <span>© 2026 Lexwork India · All Rights Reserved</span>
+  <span style="display:flex;gap:20px;"><a href="index.html">Home</a><a href="mailto:hello@lexwork.in">Support</a></span>
+  <span>Disclaimer: For informational use only. Not legal advice.</span>
+</footer>
 
 <script>
-  const RZP_KEY = 'rzp_live_SWgdMv2uMffOiO';
-
-  const $ = id => document.getElementById(id);
-
-  function setStatus(msg, type) {
-    const b = $('statusBox');
-    b.textContent = msg;
-    b.className = 'status show ' + type;
+  function handlePayClick() {
+    /* Visual feedback on click */
+    const btn = document.getElementById('payBtn');
+    btn.style.background = '#b8420a';
+    btn.querySelector('.btn-pay-text').textContent = 'Opening Razorpay…';
+    /* Reset after 3s in case user returns */
+    setTimeout(() => {
+      btn.style.background = '';
+      btn.querySelector('.btn-pay-text').textContent = 'Pay ₹499 via Razorpay';
+    }, 3000);
   }
-  function clearStatus() { $('statusBox').className = 'status'; }
-
-  function setLoading(on) {
-    const b = $('payBtn');
-    b.classList.toggle('loading', on);
-    b.disabled = on;
-  }
-
-  function validate() {
-    const name  = $('fname').value.trim();
-    const email = $('femail').value.trim();
-    const phone = $('fphone').value.trim();
-    [$('fname'),$('femail'),$('fphone')].forEach(el => el.classList.remove('err'));
-    if (!name)                                  { $('fname').classList.add('err');  setStatus('Please enter your full name.', 'error'); return null; }
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { $('femail').classList.add('err'); setStatus('Please enter a valid email address.', 'error'); return null; }
-    if (!/^[6-9]\d{9}$/.test(phone))           { $('fphone').classList.add('err'); setStatus('Enter a valid 10-digit Indian mobile number.', 'error'); return null; }
-    return { name, email, phone };
-  }
-
-  function pay() {
-    clearStatus();
-    const d = validate();
-    if (!d) return;
-    setLoading(true);
-
-    const options = {
-      key:         RZP_KEY,
-      amount:      49900,
-      currency:    'INR',
-      name:        'Lexwork India',
-      description: '2026 HR Compliance Checklist',
-      prefill:     { name: d.name, email: d.email, contact: d.phone },
-      notes:       { product: 'HR Compliance Checklist 2026', buyer: d.name },
-      theme:       { color: '#d4520f' },
-
-      handler: function(response) {
-        /* ✅ Success → redirect to thank you page with payment details */
-        const p = new URLSearchParams({
-          payment_id: response.razorpay_payment_id,
-          order_id:   response.razorpay_order_id  || '',
-          signature:  response.razorpay_signature || '',
-          name:       d.name,
-          email:      d.email
-        });
-        window.location.href = 'thankyou.html?' + p.toString();
-      },
-
-      modal: {
-        ondismiss: function() {
-          setLoading(false);
-          setStatus('Payment cancelled. You can try again anytime.', 'error');
-        }
-      }
-    };
-
-    const rzp = new Razorpay(options);
-    rzp.on('payment.failed', function(r) {
-      setLoading(false);
-      setStatus('Payment failed: ' + (r.error.description || 'Please try a different method.'), 'error');
-    });
-    rzp.open();
-  }
-
-  $('fphone').addEventListener('input', function() { this.value = this.value.replace(/\D/g,'').slice(0,10); });
-  ['fname','femail','fphone'].forEach(id => $(id).addEventListener('focus', function() { this.classList.remove('err'); clearStatus(); }));
 </script>
 </body>
 </html>
