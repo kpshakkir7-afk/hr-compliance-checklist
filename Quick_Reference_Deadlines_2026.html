@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quick Reference — HR Compliance Deadlines 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#0d0c0a; --cream:#f7f2ea; --cream2:#ede7d9;
+    --orange:#d4520f; --navy:#112244; --gold:#b8972a;
+    --green:#1a6b3a; --red:#b91c1c; --border:#d9cfc0;
+    --white:#ffffff; --muted:#6b6256;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);}
+
+  .page { max-width: 960px; margin: 0 auto; padding: 48px 40px; }
+
+  /* HEADER */
+  .header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    margin-bottom: 36px; padding-bottom: 28px;
+    border-bottom: 2px solid var(--navy);
+    flex-wrap: wrap; gap: 20px;
+  }
+  .header-left {}
+  .header-eyebrow {
+    font-family:'DM Mono',monospace; font-size:10px;
+    letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--orange); margin-bottom:8px;
+  }
+  .header-title {
+    font-family:'Cormorant Garamond',serif; font-size:36px;
+    font-weight:700; color:var(--navy); line-height:1.1; margin-bottom:6px;
+  }
+  .header-title em { color:var(--orange); font-style:italic; }
+  .header-sub { font-size:13px; color:var(--muted); }
+  .header-badge {
+    background:var(--navy); color:#fff;
+    padding:16px 24px; border-radius:10px; text-align:center;
+  }
+  .header-badge-num {
+    font-family:'Cormorant Garamond',serif; font-size:38px;
+    font-weight:700; color:var(--gold); line-height:1;
+  }
+  .header-badge-label {
+    font-family:'DM Mono',monospace; font-size:9px;
+    letter-spacing:0.15em; color:rgba(255,255,255,0.5);
+    margin-top:4px; text-transform:uppercase;
+  }
+
+  /* LEGEND */
+  .legend {
+    display:flex; gap:20px; margin-bottom:28px; flex-wrap:wrap;
+  }
+  .legend-item {
+    display:flex; align-items:center; gap:6px;
+    font-size:11px; color:var(--muted);
+    font-family:'DM Mono',monospace; letter-spacing:0.06em;
+  }
+  .legend-dot { width:10px; height:10px; border-radius:50%; }
+
+  /* TABLE */
+  .deadline-table {
+    width:100%; border-collapse:collapse;
+    margin-bottom:32px;
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:12px;
+    overflow:hidden;
+    font-size:13px;
+  }
+  .deadline-table thead { background:var(--navy); }
+  .deadline-table th {
+    padding:13px 16px; text-align:left;
+    font-family:'DM Mono',monospace; font-size:9px;
+    letter-spacing:0.15em; text-transform:uppercase;
+    color:rgba(255,255,255,0.6); font-weight:500;
+  }
+  .deadline-table td {
+    padding:12px 16px; border-top:1px solid var(--border);
+    vertical-align:top; line-height:1.45;
+  }
+  .deadline-table tbody tr:hover { background:var(--cream); }
+
+  .freq-badge {
+    display:inline-block;
+    font-family:'DM Mono',monospace; font-size:9px;
+    padding:2px 7px; border-radius:3px;
+    letter-spacing:0.08em; text-transform:uppercase;
+  }
+  .freq-monthly  { background:#fff3e0; color:#b85000; }
+  .freq-quarterly{ background:#e8f4fd; color:#1a3a6b; }
+  .freq-annual   { background:#eef9f3; color:#166534; }
+  .freq-onetime  { background:#f3eeff; color:#4c1d95; }
+
+  .penalty-cell {
+    font-family:'DM Mono',monospace; font-size:11px;
+    color:var(--red); font-weight:500;
+  }
+
+  .due-date {
+    font-family:'DM Mono',monospace; font-size:11px;
+    color:var(--navy); font-weight:500;
+  }
+
+  .crit-row td:first-child { border-left:3px solid var(--red); }
+  .warn-row td:first-child { border-left:3px solid var(--orange); }
+  .safe-row td:first-child { border-left:3px solid var(--green); }
+
+  /* SECTION HEADER ROW */
+  .section-row td {
+    background:var(--cream2);
+    font-family:'DM Mono',monospace; font-size:9px;
+    letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--muted); padding:8px 16px;
+    font-weight:500;
+  }
+
+  /* CALLOUT */
+  .callout {
+    border-radius:10px; padding:16px 20px;
+    display:flex; gap:12px; align-items:flex-start;
+    border:1px solid; margin-bottom:20px; font-size:13px;
+  }
+  .callout-warn { background:#fff8f0; border-color:#f5d0a0; }
+  .callout-info { background:#f0f4fb; border-color:#b8c8f0; }
+  .callout-title { font-weight:600; margin-bottom:3px; }
+  .callout-text  { color:var(--muted); line-height:1.55; }
+
+  /* FOOTER */
+  .page-footer {
+    margin-top:40px; padding-top:20px;
+    border-top:1px solid var(--border);
+    display:flex; justify-content:space-between;
+    flex-wrap:wrap; gap:12px;
+    font-family:'DM Mono',monospace; font-size:10px;
+    color:var(--muted); letter-spacing:0.08em;
+  }
+  .btn-print {
+    background:var(--navy); color:#fff; border:none;
+    padding:10px 20px; border-radius:6px;
+    font-family:'DM Mono',monospace; font-size:11px;
+    letter-spacing:0.08em; cursor:pointer; margin-bottom:24px;
+    transition:background 0.2s;
+  }
+  .btn-print:hover { background:#1e3a6e; }
+
+  @media print {
+    body { background:#fff; }
+    .btn-print { display:none; }
+    .page { padding:20px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <button class="btn-print" onclick="window.print()">🖨 Print / Save as PDF</button>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-left">
+      <div class="header-eyebrow">Lexwork India · Bonus Document</div>
+      <div class="header-title">HR Compliance <em>Deadline</em> Calendar</div>
+      <div class="header-sub">FY 2025–26 · All statutory due dates with penalties · Indian Startups</div>
+    </div>
+    <div class="header-badge">
+      <div class="header-badge-num">2026</div>
+      <div class="header-badge-label">Financial Year</div>
+    </div>
+  </div>
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <div class="legend-item"><div class="legend-dot" style="background:var(--red)"></div> Critical — Criminal liability</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--orange)"></div> High — Heavy penalties</div>
+    <div class="legend-item"><div class="legend-dot" style="background:var(--green)"></div> Standard — Manageable</div>
+  </div>
+
+  <!-- CALLOUT -->
+  <div class="callout callout-warn">
+    <span style="font-size:16px">⚠️</span>
+    <div>
+      <div class="callout-title">New for 2026: Default Tax Regime</div>
+      <div class="callout-text">From FY 2024-25 onwards, the new tax regime (Section 115BAC) is the default. Employees must opt into the old regime via Form 10-IEA. Update your payroll system and TDS calculations immediately.</div>
+    </div>
+  </div>
+
+  <!-- MAIN TABLE -->
+  <table class="deadline-table">
+    <thead>
+      <tr>
+        <th style="width:26%">Obligation</th>
+        <th style="width:18%">Due Date</th>
+        <th style="width:12%">Frequency</th>
+        <th style="width:22%">Penalty for Default</th>
+        <th style="width:22%">Applicable When</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- PAYROLL -->
+      <tr class="section-row"><td colspan="5">PAYROLL & STATUTORY FILINGS</td></tr>
+
+      <tr class="crit-row">
+        <td><strong>EPF Contribution (ECR)</strong><br><span style="font-size:11px;color:var(--muted)">Employee 12% + Employer 12%</span></td>
+        <td class="due-date">15th of every month</td>
+        <td><span class="freq-badge freq-monthly">Monthly</span></td>
+        <td class="penalty-cell">₹5,000 + 12% p.a. interest</td>
+        <td style="font-size:12px;color:var(--muted)">20+ employees</td>
+      </tr>
+
+      <tr class="crit-row">
+        <td><strong>ESIC Contribution</strong><br><span style="font-size:11px;color:var(--muted)">Employee 0.75% + Employer 3.25%</span></td>
+        <td class="due-date">15th of every month</td>
+        <td><span class="freq-badge freq-monthly">Monthly</span></td>
+        <td class="penalty-cell">₹5,000 + 12% p.a. interest</td>
+        <td style="font-size:12px;color:var(--muted)">10+ employees, salary ≤₹21,000</td>
+      </tr>
+
+      <tr class="crit-row">
+        <td><strong>TDS Deposit (Section 192)</strong><br><span style="font-size:11px;color:var(--muted)">Salary TDS via Challan 281</span></td>
+        <td class="due-date">7th of every month</td>
+        <td><span class="freq-badge freq-monthly">Monthly</span></td>
+        <td class="penalty-cell">1.5%/month + ₹200/day late fee</td>
+        <td style="font-size:12px;color:var(--muted)">All employers paying salary</td>
+      </tr>
+
+      <tr class="warn-row">
+        <td><strong>Professional Tax Remittance</strong><br><span style="font-size:11px;color:var(--muted)">State-specific slabs</span></td>
+        <td class="due-date">State-specific</td>
+        <td><span class="freq-badge freq-monthly">Monthly</span></td>
+        <td class="penalty-cell">₹1,000–₹5,000 (varies)</td>
+        <td style="font-size:12px;color:var(--muted)">MH, KA, WB, TG, AP, GJ, others</td>
+      </tr>
+
+      <!-- QUARTERLY -->
+      <tr class="section-row"><td colspan="5">QUARTERLY FILINGS</td></tr>
+
+      <tr class="warn-row">
+        <td><strong>TDS Return Form 24Q</strong><br><span style="font-size:11px;color:var(--muted)">Salary TDS quarterly return</span></td>
+        <td class="due-date">Q1: 31 Jul<br>Q2: 31 Oct<br>Q3: 31 Jan<br>Q4: 31 May</td>
+        <td><span class="freq-badge freq-quarterly">Quarterly</span></td>
+        <td class="penalty-cell">₹200/day up to tax amount</td>
+        <td style="font-size:12px;color:var(--muted)">All employers deducting TDS</td>
+      </tr>
+
+      <!-- ANNUAL -->
+      <tr class="section-row"><td colspan="5">ANNUAL FILINGS & EVENTS</td></tr>
+
+      <tr class="crit-row">
+        <td><strong>Form 16 Issue to Employees</strong><br><span style="font-size:11px;color:var(--muted)">Part A (TRACES) + Part B (employer)</span></td>
+        <td class="due-date">15 June every year</td>
+        <td><span class="freq-badge freq-annual">Annual</span></td>
+        <td class="penalty-cell">₹100/day of delay</td>
+        <td style="font-size:12px;color:var(--muted)">All employers</td>
+      </tr>
+
+      <tr class="warn-row">
+        <td><strong>POSH Annual Report</strong><br><span style="font-size:11px;color:var(--muted)">IC report to employer + District Officer</span></td>
+        <td class="due-date">31 January every year</td>
+        <td><span class="freq-badge freq-annual">Annual</span></td>
+        <td class="penalty-cell">₹50,000 + licence cancellation</td>
+        <td style="font-size:12px;color:var(--muted)">All companies (no size threshold)</td>
+      </tr>
+
+      <tr class="warn-row">
+        <td><strong>Labour Law Annual Returns</strong><br><span style="font-size:11px;color:var(--muted)">S&amp;E, Minimum Wages, Bonus etc.</span></td>
+        <td class="due-date">31 Jan / 28 Feb (state-specific)</td>
+        <td><span class="freq-badge freq-annual">Annual</span></td>
+        <td class="penalty-cell">₹5,000–₹50,000</td>
+        <td style="font-size:12px;color:var(--muted)">All registered establishments</td>
+      </tr>
+
+      <tr class="safe-row">
+        <td><strong>EPF Annual Return / Reconciliation</strong><br><span style="font-size:11px;color:var(--muted)">EPFO portal reconciliation</span></td>
+        <td class="due-date">30 April every year</td>
+        <td><span class="freq-badge freq-annual">Annual</span></td>
+        <td class="penalty-cell">₹5,000 + interest</td>
+        <td style="font-size:12px;color:var(--muted)">EPF-registered employers</td>
+      </tr>
+
+      <tr class="safe-row">
+        <td><strong>ESIC Half-Yearly Returns</strong><br><span style="font-size:11px;color:var(--muted)">Apr–Sep and Oct–Mar</span></td>
+        <td class="due-date">11 November<br>12 May</td>
+        <td><span class="freq-badge freq-annual">Biannual</span></td>
+        <td class="penalty-cell">₹5,000 + interest</td>
+        <td style="font-size:12px;color:var(--muted)">ESIC-registered employers</td>
+      </tr>
+
+      <tr class="crit-row">
+        <td><strong>Bonus Payment</strong><br><span style="font-size:11px;color:var(--muted)">Min 8.33%, max 20% of annual salary</span></td>
+        <td class="due-date">Within 8 months of FY end (before Diwali preferred)</td>
+        <td><span class="freq-badge freq-annual">Annual</span></td>
+        <td class="penalty-cell">Criminal: 6 months imprisonment</td>
+        <td style="font-size:12px;color:var(--muted)">20+ employees, salary ≤₹21,000</td>
+      </tr>
+
+      <tr class="safe-row">
+        <td><strong>Professional Tax Annual Return</strong><br><span style="font-size:11px;color:var(--muted)">State commercial tax authority</span></td>
+        <td class="due-date">State-specific</td>
+        <td><span class="freq-badge freq-annual">Annual</span></td>
+        <td class="penalty-cell">State-specific</td>
+        <td style="font-size:12px;color:var(--muted)">PT-applicable states</td>
+      </tr>
+
+      <tr class="safe-row">
+        <td><strong>S&amp;E Registration Renewal</strong><br><span style="font-size:11px;color:var(--muted)">Shops &amp; Establishments registration</span></td>
+        <td class="due-date">Before expiry (state-specific)</td>
+        <td><span class="freq-badge freq-annual">Annual</span></td>
+        <td class="penalty-cell">₹2,000–₹20,000</td>
+        <td style="font-size:12px;color:var(--muted)">All registered establishments</td>
+      </tr>
+
+      <!-- ONE-TIME -->
+      <tr class="section-row"><td colspan="5">ONE-TIME REGISTRATIONS (if not done)</td></tr>
+
+      <tr class="crit-row">
+        <td><strong>EPF Registration</strong></td>
+        <td class="due-date">Before 20th employee joins</td>
+        <td><span class="freq-badge freq-onetime">One-Time</span></td>
+        <td class="penalty-cell">Retroactive + ₹5,000/month</td>
+        <td style="font-size:12px;color:var(--muted)">20+ employees</td>
+      </tr>
+
+      <tr class="crit-row">
+        <td><strong>ESIC Registration</strong></td>
+        <td class="due-date">Before 10th employee joins</td>
+        <td><span class="freq-badge freq-onetime">One-Time</span></td>
+        <td class="penalty-cell">Retroactive liability</td>
+        <td style="font-size:12px;color:var(--muted)">10+ employees (most states)</td>
+      </tr>
+
+      <tr class="crit-row">
+        <td><strong>POSH Internal Committee</strong></td>
+        <td class="due-date">Before 10th employee joins</td>
+        <td><span class="freq-badge freq-onetime">One-Time</span></td>
+        <td class="penalty-cell">₹50,000 + licence cancellation</td>
+        <td style="font-size:12px;color:var(--muted)">10+ employees</td>
+      </tr>
+
+      <tr class="warn-row">
+        <td><strong>DPDP Consent Framework</strong><br><span style="font-size:11px;color:var(--muted)">Data Processing Consent (new 2026)</span></td>
+        <td class="due-date">Before collecting any employee data</td>
+        <td><span class="freq-badge freq-onetime">One-Time + Ongoing</span></td>
+        <td class="penalty-cell">Up to ₹250 Crore</td>
+        <td style="font-size:12px;color:var(--muted)">All employers · DPDP Act 2023</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <!-- CALLOUT INFO -->
+  <div class="callout callout-info">
+    <span style="font-size:16px">ℹ️</span>
+    <div>
+      <div class="callout-title">Disclaimer</div>
+      <div class="callout-text">This reference is for informational purposes only and does not constitute legal advice. Deadlines and penalty amounts are based on central and commonly applicable state laws as of FY 2025-26. Always verify with a qualified CA or labour law consultant for your specific state and situation.</div>
+    </div>
+  </div>
+
+  <!-- PAGE FOOTER -->
+  <div class="page-footer">
+    <span>© 2026 Lexwork India · 2026 HR Compliance Bundle</span>
+    <span>FY 2025–26 · Updated for DPDP Act, Labour Codes, New Tax Regime</span>
+    <span>Not legal advice · Consult a qualified professional</span>
+  </div>
+
+</div>
+</body>
+</html>

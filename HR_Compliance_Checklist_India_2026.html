@@ -1,0 +1,1962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2026 HR Compliance Checklist — Indian Startups</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0e0c;
+    --paper: #f5f0e8;
+    --paper-alt: #ece6d9;
+    --saffron: #e8651a;
+    --saffron-light: #f5a05a;
+    --ashoka: #1a3a6b;
+    --ashoka-light: #2e5fa3;
+    --green: #1a6b3a;
+    --green-light: #2d9e5a;
+    --muted: #7a7060;
+    --border: #c8bfa8;
+    --tag-bg: #fff8f0;
+    --progress-track: #ddd6c6;
+    --shadow: 0 4px 24px rgba(15,14,12,0.10);
+    --shadow-lg: 0 12px 40px rgba(15,14,12,0.15);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: 280px; height: 100vh;
+    background: var(--ashoka);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    overflow-y: auto;
+    transition: transform 0.35s cubic-bezier(.77,0,.175,1);
+  }
+  .sidebar-header {
+    padding: 32px 24px 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .sidebar-brand {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 8px;
+  }
+  .sidebar-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #fff;
+  }
+  .sidebar-year {
+    display: inline-block;
+    margin-top: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    background: var(--saffron);
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 3px;
+    letter-spacing: 0.1em;
+  }
+  .sidebar-progress-wrap {
+    padding: 16px 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .sidebar-progress-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .sidebar-progress-bar {
+    height: 4px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .sidebar-progress-fill {
+    height: 100%;
+    background: var(--saffron);
+    border-radius: 2px;
+    transition: width 0.5s ease;
+  }
+  .sidebar-nav {
+    flex: 1;
+    padding: 12px 0;
+  }
+  .nav-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 24px;
+    cursor: pointer;
+    text-decoration: none;
+    color: rgba(255,255,255,0.7);
+    font-size: 13px;
+    font-weight: 500;
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+    line-height: 1.35;
+  }
+  .nav-section:hover, .nav-section.active {
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    border-left-color: var(--saffron);
+  }
+  .nav-section-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: rgba(255,255,255,0.35);
+    min-width: 22px;
+  }
+  .nav-section-check {
+    margin-left: auto;
+    font-size: 11px;
+    color: var(--green-light);
+    font-family: 'IBM Plex Mono', monospace;
+    white-space: nowrap;
+  }
+  .sidebar-footer {
+    padding: 20px 24px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    line-height: 1.6;
+  }
+  .btn-export {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: var(--saffron);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    margin-bottom: 14px;
+    transition: background 0.2s;
+  }
+  .btn-export:hover { background: #cf5610; }
+
+  /* ── HAMBURGER ── */
+  .hamburger {
+    display: none;
+    position: fixed;
+    top: 16px; left: 16px;
+    z-index: 200;
+    background: var(--ashoka);
+    border: none;
+    width: 40px; height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .hamburger span { display: block; width: 20px; height: 2px; background: #fff; border-radius: 2px; }
+
+  /* ── MAIN ── */
+  .main {
+    margin-left: 280px;
+    min-height: 100vh;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--ink);
+    color: #fff;
+    padding: 80px 64px 64px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: 'भारत';
+    position: absolute;
+    right: -20px; top: -20px;
+    font-family: 'Playfair Display', serif;
+    font-size: 200px;
+    font-weight: 900;
+    color: rgba(255,255,255,0.03);
+    user-select: none;
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 20px;
+  }
+  .hero-h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 58px);
+    font-weight: 900;
+    line-height: 1.1;
+    max-width: 700px;
+    margin-bottom: 24px;
+  }
+  .hero-h1 em { color: var(--saffron); font-style: normal; }
+  .hero-desc {
+    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    max-width: 560px;
+    line-height: 1.7;
+    margin-bottom: 36px;
+  }
+  .hero-stats {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .hero-stat { }
+  .hero-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--saffron);
+    line-height: 1;
+  }
+  .hero-stat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.45);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .hero-ashoka {
+    position: absolute;
+    right: 64px; top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.08;
+    font-size: 160px;
+  }
+
+  /* ── CONTENT ── */
+  .content {
+    padding: 0 64px 80px;
+  }
+
+  /* ── SECTION BLOCK ── */
+  .section-block {
+    margin-top: 64px;
+    scroll-margin-top: 24px;
+  }
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--border);
+  }
+  .section-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    background: var(--paper-alt);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-top: 4px;
+    white-space: nowrap;
+  }
+  .section-title-wrap { flex: 1; }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 700;
+    color: var(--ashoka);
+    line-height: 1.2;
+    margin-bottom: 6px;
+  }
+  .section-subtitle {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .section-badge {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge-critical { background: #fde8e8; color: #b91c1c; }
+  .badge-high { background: #fff3e0; color: #c25e00; }
+  .badge-standard { background: #e8f4fd; color: #1a3a6b; }
+  .badge-new { background: #e8f9ef; color: #166534; }
+
+  /* ── SUBSECTION ── */
+  .subsection {
+    margin-bottom: 32px;
+  }
+  .subsection-title {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .subsection-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── CHECKLIST ITEMS ── */
+  .checklist {
+    display: grid;
+    gap: 10px;
+  }
+  .checklist.two-col {
+    grid-template-columns: 1fr 1fr;
+  }
+  .item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .item::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 3px;
+    background: var(--border);
+    transition: background 0.2s;
+  }
+  .item:hover {
+    border-color: var(--ashoka-light);
+    box-shadow: var(--shadow);
+    transform: translateY(-1px);
+  }
+  .item.checked {
+    background: #f0f9f5;
+    border-color: var(--green);
+  }
+  .item.checked::before { background: var(--green); }
+  .item.critical::before { background: #e53e3e; }
+  .item.checked.critical::before { background: var(--green); }
+
+  .item-checkbox {
+    width: 20px; height: 20px;
+    border: 2px solid var(--border);
+    border-radius: 5px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+    transition: all 0.2s;
+    background: #fff;
+  }
+  .item.checked .item-checkbox {
+    background: var(--green);
+    border-color: var(--green);
+  }
+  .item-checkbox svg { display: none; }
+  .item.checked .item-checkbox svg { display: block; }
+
+  .item-body { flex: 1; min-width: 0; }
+  .item-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  .item.checked .item-title { color: var(--green); text-decoration: line-through; opacity: 0.75; }
+  .item-desc {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+  .item-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 8px;
+  }
+  .tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    background: var(--tag-bg);
+    border: 1px solid #f5d8b8;
+    color: var(--saffron);
+    letter-spacing: 0.05em;
+  }
+  .tag.law { background: #eef2fb; border-color: #b8c8f5; color: var(--ashoka); }
+  .tag.penalty { background: #fff0f0; border-color: #f5b8b8; color: #b91c1c; }
+  .tag.new { background: #eefaf3; border-color: #b8f5ce; color: #166534; }
+  .tag.deadline { background: #fffbeb; border-color: #fde68a; color: #92400e; }
+
+  .item-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .item-freq {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── CALLOUT BOX ── */
+  .callout {
+    border-radius: 10px;
+    padding: 18px 22px;
+    margin: 20px 0;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    border: 1px solid;
+  }
+  .callout-warning {
+    background: #fff8f0;
+    border-color: #f5d0a0;
+  }
+  .callout-info {
+    background: #f0f4fb;
+    border-color: #b8c8f0;
+  }
+  .callout-danger {
+    background: #fff0f0;
+    border-color: #f5b8b8;
+  }
+  .callout-success {
+    background: #f0faf4;
+    border-color: #b8f0ce;
+  }
+  .callout-icon { font-size: 18px; margin-top: 1px; }
+  .callout-content {}
+  .callout-title {
+    font-weight: 600;
+    font-size: 13px;
+    margin-bottom: 4px;
+    color: var(--ink);
+  }
+  .callout-text {
+    font-size: 12.5px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── PENALTY TABLE ── */
+  .penalty-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin: 16px 0;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .penalty-table thead {
+    background: var(--ashoka);
+    color: #fff;
+  }
+  .penalty-table th {
+    padding: 12px 16px;
+    text-align: left;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .penalty-table td {
+    padding: 11px 16px;
+    border-top: 1px solid var(--border);
+    color: var(--ink);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .penalty-table tbody tr:hover { background: var(--paper-alt); }
+  .penalty-amt { color: #b91c1c; font-weight: 600; font-family: 'IBM Plex Mono', monospace; font-size: 12px; }
+
+  /* ── SECTION PROGRESS ── */
+  .section-progress {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 24px;
+    padding: 14px 18px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+  }
+  .sp-label { font-size: 12px; color: var(--muted); white-space: nowrap; }
+  .sp-bar {
+    flex: 1;
+    height: 6px;
+    background: var(--progress-track);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .sp-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--ashoka), var(--saffron));
+    border-radius: 3px;
+    transition: width 0.4s ease;
+  }
+  .sp-pct {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--ashoka);
+    font-weight: 600;
+    min-width: 36px;
+    text-align: right;
+  }
+
+  /* ── GLOBAL PROGRESS DASHBOARD ── */
+  .dashboard {
+    background: var(--ink);
+    color: #fff;
+    padding: 40px 64px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 24px;
+  }
+  .dash-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+  }
+  .dash-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--saffron);
+    line-height: 1;
+  }
+  .dash-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    margin-top: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+  }
+
+  /* ── SEARCH ── */
+  .search-bar-wrap {
+    padding: 24px 64px 0;
+    position: sticky;
+    top: 0;
+    background: var(--paper);
+    z-index: 50;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 16px;
+  }
+  .search-bar {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 16px;
+    gap: 10px;
+    max-width: 600px;
+  }
+  .search-bar input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    background: transparent;
+  }
+  .search-bar input::placeholder { color: var(--muted); }
+  .search-icon { color: var(--muted); font-size: 16px; }
+  .filter-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .filter-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: #fff;
+    cursor: pointer;
+    color: var(--muted);
+    transition: all 0.2s;
+    letter-spacing: 0.06em;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--ashoka);
+    color: #fff;
+    border-color: var(--ashoka);
+  }
+
+  /* ── PRINT BUTTON ── */
+  .print-bar {
+    padding: 16px 64px;
+    background: var(--paper-alt);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .print-bar-label {
+    font-size: 13px;
+    color: var(--muted);
+    flex: 1;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+  .btn-small {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    padding: 7px 16px;
+    border-radius: 6px;
+    border: 1.5px solid;
+    cursor: pointer;
+    letter-spacing: 0.08em;
+    transition: all 0.2s;
+  }
+  .btn-outline {
+    background: transparent;
+    border-color: var(--border);
+    color: var(--ink);
+  }
+  .btn-outline:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .btn-fill {
+    background: var(--saffron);
+    border-color: var(--saffron);
+    color: #fff;
+  }
+  .btn-fill:hover { background: #cf5610; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .sidebar { transform: translateX(-100%); }
+    .sidebar.open { transform: translateX(0); }
+    .hamburger { display: flex; }
+    .main { margin-left: 0; }
+    .hero, .content, .search-bar-wrap, .print-bar, .dashboard { padding-left: 24px; padding-right: 24px; }
+    .checklist.two-col { grid-template-columns: 1fr; }
+    .hero-ashoka { display: none; }
+    .hero::before { font-size: 120px; }
+    .penalty-table { font-size: 12px; }
+    .penalty-table th, .penalty-table td { padding: 9px 10px; }
+  }
+
+  @media print {
+    .sidebar, .hamburger, .search-bar-wrap, .print-bar { display: none !important; }
+    .main { margin-left: 0; }
+    .section-block { break-inside: avoid; }
+    .item { break-inside: avoid; }
+    body { background: #fff; }
+  }
+
+  /* ── OVERLAY ── */
+  .overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 99;
+  }
+  .overlay.show { display: block; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .section-block { animation: fadeUp 0.4s ease both; }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--border), transparent);
+    margin: 8px 0 20px;
+  }
+
+  /* ── NOTE ── */
+  .note {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: 6px;
+    padding-left: 4px;
+    border-left: 2px solid var(--border);
+    line-height: 1.6;
+  }
+
+  /* ── GRID CARDS ── */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .card-icon { font-size: 22px; margin-bottom: 10px; }
+  .card-title { font-weight: 600; font-size: 14px; color: var(--ashoka); margin-bottom: 6px; }
+  .card-body { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<nav class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-brand">Lexwork India</div>
+    <div class="sidebar-title">HR Compliance Checklist</div>
+    <span class="sidebar-year">FY 2025–26</span>
+  </div>
+  <div class="sidebar-progress-wrap">
+    <div class="sidebar-progress-label">
+      <span>Overall Completion</span>
+      <span id="pct-overall">0%</span>
+    </div>
+    <div class="sidebar-progress-bar">
+      <div class="sidebar-progress-fill" id="fill-overall" style="width:0%"></div>
+    </div>
+  </div>
+  <div class="sidebar-nav">
+    <a class="nav-section" href="#s1"><span class="nav-section-num">01</span> Company & Employment Setup <span class="nav-section-check" id="nav-check-1"></span></a>
+    <a class="nav-section" href="#s2"><span class="nav-section-num">02</span> Employment Documentation <span class="nav-section-check" id="nav-check-2"></span></a>
+    <a class="nav-section" href="#s3"><span class="nav-section-num">03</span> Payroll & Statutory <span class="nav-section-check" id="nav-check-3"></span></a>
+    <a class="nav-section" href="#s4"><span class="nav-section-num">04</span> Labour Law Compliance <span class="nav-section-check" id="nav-check-4"></span></a>
+    <a class="nav-section" href="#s5"><span class="nav-section-num">05</span> POSH Compliance <span class="nav-section-check" id="nav-check-5"></span></a>
+    <a class="nav-section" href="#s6"><span class="nav-section-num">06</span> Registers & Records <span class="nav-section-check" id="nav-check-6"></span></a>
+    <a class="nav-section" href="#s7"><span class="nav-section-num">07</span> Health & Safety <span class="nav-section-check" id="nav-check-7"></span></a>
+    <a class="nav-section" href="#s8"><span class="nav-section-num">08</span> Annual Filings <span class="nav-section-check" id="nav-check-8"></span></a>
+    <a class="nav-section" href="#s9"><span class="nav-section-num">09</span> New-Age Compliance <span class="nav-section-check" id="nav-check-9"></span></a>
+    <a class="nav-section" href="#s10"><span class="nav-section-num">10</span> Audit & Governance <span class="nav-section-check" id="nav-check-10"></span></a>
+  </div>
+  <div class="sidebar-footer">
+    <button class="btn-export" onclick="window.print()">⬇ Print / Export PDF</button>
+    <button class="btn-export" onclick="resetAll()" style="background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);">↺ Reset All</button>
+    Disclaimer: This checklist is for informational purposes only and does not constitute legal advice. Consult a qualified professional.
+  </div>
+</nav>
+<div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+<button class="hamburger" id="hamburger" onclick="toggleSidebar()">
+  <span></span><span></span><span></span>
+</button>
+
+<main class="main">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">Indian Startup · Legal & HR · 2025–26</div>
+    <h1 class="hero-h1">2026 HR Compliance Checklist for <em>Indian Startups</em></h1>
+    <p class="hero-desc">A comprehensive, interactive guide covering 10 critical compliance domains — from company setup through audit governance. Track your progress, understand penalties, and stay legally protected.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-num" id="stat-total">0</div><div class="hero-stat-label">Items Checked</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">10</div><div class="hero-stat-label">Compliance Domains</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">₹</div><div class="hero-stat-label">Penalty-Aware</div></div>
+      <div class="hero-stat"><div class="hero-stat-num">2026</div><div class="hero-stat-label">Updated FY</div></div>
+    </div>
+    <div class="hero-ashoka">⚖</div>
+  </div>
+
+  <!-- SEARCH -->
+  <div class="search-bar-wrap">
+    <div class="search-bar">
+      <span class="search-icon">🔍</span>
+      <input type="text" placeholder="Search checklist items, laws, penalties…" id="search-input" oninput="filterItems()">
+    </div>
+    <div class="filter-row">
+      <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
+      <button class="filter-btn" onclick="setFilter('critical',this)">Critical</button>
+      <button class="filter-btn" onclick="setFilter('unchecked',this)">Pending</button>
+      <button class="filter-btn" onclick="setFilter('checked',this)">Completed</button>
+      <button class="filter-btn" onclick="setFilter('new',this)">New 2026</button>
+      <button class="filter-btn" onclick="setFilter('penalty',this)">Has Penalty</button>
+    </div>
+  </div>
+
+  <!-- PRINT BAR -->
+  <div class="print-bar">
+    <span class="print-bar-label">LEXWORK · 2026 HR COMPLIANCE CHECKLIST · INDIA · CONFIDENTIAL DRAFT</span>
+    <button class="btn-small btn-outline" onclick="checkAll()">✓ Mark Section Done</button>
+    <button class="btn-small btn-fill" onclick="window.print()">Print PDF</button>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content" id="content">
+
+    <!-- ══════════════════════════════════════
+         SECTION 1: COMPANY & EMPLOYMENT SETUP
+    ══════════════════════════════════════ -->
+    <div class="section-block" id="s1">
+      <div class="section-header">
+        <span class="section-num">SECTION 01</span>
+        <div class="section-title-wrap">
+          <div class="section-title">Company & Employment Setup</div>
+          <div class="section-subtitle">Foundational registrations and licenses required before hiring any employee in India</div>
+        </div>
+        <span class="section-badge badge-critical">Critical</span>
+      </div>
+
+      <div class="section-progress">
+        <span class="sp-label">Section Progress</span>
+        <div class="sp-bar"><div class="sp-fill" id="sp-1" style="width:0%"></div></div>
+        <span class="sp-pct" id="sp-pct-1">0%</span>
+      </div>
+
+      <div class="callout callout-danger">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-content">
+          <div class="callout-title">Non-compliance Alert</div>
+          <div class="callout-text">Operating without mandatory registrations (EPF, ESIC, PAN/TAN) can attract penalties of ₹5,000–₹1,00,000+ per default, plus criminal liability for directors. MCA and GST authorities conduct random audits of startups.</div>
+        </div>
+      </div>
+
+      <div class="subsection-title">Core Registrations</div>
+      <div class="checklist" id="c-s1">
+        <div class="item critical" data-tags="critical" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Certificate of Incorporation (MCA)</div>
+            <div class="item-desc">Filed with Ministry of Corporate Affairs. Required before any business activity. Obtain CIN (Corporate Identity Number). Keep certified copies accessible.</div>
+            <div class="item-tags"><span class="tag law">Companies Act 2013</span><span class="tag penalty">Penalty: ₹10,000+</span></div>
+            <div class="item-meta"><span class="item-freq">ONE-TIME</span></div>
+          </div>
+        </div>
+        <div class="item critical" data-tags="critical" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">PAN (Permanent Account Number) Registration</div>
+            <div class="item-desc">Mandatory entity PAN for all tax filings. Separate from promoters' personal PAN. Required for bank account opening and TDS compliance.</div>
+            <div class="item-tags"><span class="tag law">Income Tax Act 1961</span><span class="tag penalty">Penalty: ₹10,000</span></div>
+            <div class="item-meta"><span class="item-freq">ONE-TIME</span></div>
+          </div>
+        </div>
+        <div class="item critical" data-tags="critical" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">TAN (Tax Deduction Account Number) Registration</div>
+            <div class="item-desc">Required for all employers who deduct TDS on salaries. Must be quoted on all TDS challans, TDS certificates, and returns. Apply via Form 49B.</div>
+            <div class="item-tags"><span class="tag law">Income Tax Act §203A</span><span class="tag penalty">Penalty: ₹10,000/default</span></div>
+            <div class="item-meta"><span class="item-freq">ONE-TIME</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">GST Registration (if applicable)</div>
+            <div class="item-desc">Mandatory if annual turnover exceeds ₹20L (services) or ₹40L (goods). Required if providing services inter-state. Voluntary registration also available for smaller startups.</div>
+            <div class="item-tags"><span class="tag law">GST Act 2017</span><span class="tag penalty">Penalty: 10% of tax due</span></div>
+            <div class="item-meta"><span class="item-freq">ONE-TIME</span></div>
+          </div>
+        </div>
+
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Professional Tax (PT) Registration</div>
+            <div class="item-desc">State-level obligation. Applicable in Maharashtra, Karnataka, West Bengal, Telangana, Andhra Pradesh, Gujarat, and others. Must register within 30 days of hiring first employee. Deduct and remit monthly/annually as applicable.</div>
+            <div class="item-tags"><span class="tag law">State PT Acts</span><span class="tag penalty">Varies by state</span></div>
+            <div class="item-meta"><span class="item-freq">ONE-TIME + MONTHLY</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Shops & Establishments Act Registration</div>
+            <div class="item-desc">State-specific. Must register within 30 days of commencement of business. Governs working hours, leave policies, and workplace conditions. Required for bank accounts in many states.</div>
+            <div class="item-tags"><span class="tag law">State S&E Acts</span><span class="tag penalty">₹2,000–₹20,000</span></div>
+            <div class="item-meta"><span class="item-freq">ANNUAL RENEWAL</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">MSME / Udyam Registration</div>
+            <div class="item-desc">Optional but highly beneficial. Provides access to credit guarantee, priority lending, government tenders, and GST subsidies. Register on Udyam portal. No fee required.</div>
+            <div class="item-tags"><span class="tag law">MSME Act 2006</span></div>
+            <div class="item-meta"><span class="item-freq">ONE-TIME</span></div>
+          </div>
+        </div>
+        <div class="item" data-tags="new" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">DPIIT Startup India Recognition</div>
+            <div class="item-desc">Unlock tax exemptions under Sec 80-IAC, Angel Tax relief, and labour law self-certification. Apply on Startup India portal. Valid for 10 years from incorporation.</div>
+            <div class="item-tags"><span class="tag law">DPIIT Notification</span><span class="tag new">NEW BENEFIT 2026</span></div>
+            <div class="item-meta"><span class="item-freq">ONE-TIME</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Labour Identification Number (LIN)</div>
+            <div class="item-desc">Unique identifier for all labour-related filings on Shram Suvidha Portal. Required for EPF, ESIC, and other statutory filings. Register before first payroll cycle.</div>
+            <div class="item-tags"><span class="tag law">Shram Suvidha Portal</span></div>
+            <div class="item-meta"><span class="item-freq">ONE-TIME</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-info" style="margin-top:20px">
+        <span class="callout-icon">ℹ️</span>
+        <div class="callout-content">
+          <div class="callout-title">State-Level Variation</div>
+          <div class="callout-text">Professional Tax rates, Shops & Establishment rules, and applicable minimum wages differ significantly across states. Consult a local labour law consultant for Karnataka (Bengaluru), Maharashtra (Mumbai), Delhi-NCR, and Telangana jurisdictions.</div>
+        </div>
+      </div>
+    </div><!-- /s1 -->
+
+
+    <!-- ══════════════════════════════════════
+         SECTION 2: EMPLOYMENT DOCUMENTATION
+    ══════════════════════════════════════ -->
+    <div class="section-block" id="s2">
+      <div class="section-header">
+        <span class="section-num">SECTION 02</span>
+        <div class="section-title-wrap">
+          <div class="section-title">Employment Documentation</div>
+          <div class="section-subtitle">Mandatory and recommended documents for every employee engagement</div>
+        </div>
+        <span class="section-badge badge-high">High Priority</span>
+      </div>
+      <div class="section-progress">
+        <span class="sp-label">Section Progress</span>
+        <div class="sp-bar"><div class="sp-fill" id="sp-2" style="width:0%"></div></div>
+        <span class="sp-pct" id="sp-pct-2">0%</span>
+      </div>
+
+      <div class="subsection-title">Offer & Onboarding Documents</div>
+      <div class="checklist two-col" id="c-s2">
+        <div class="item critical" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Offer Letter</div>
+            <div class="item-desc">Include designation, CTC breakup, joining date, reporting manager, probation terms, and conditions. Signed by authorised signatory. Retain duplicate signed by candidate.</div>
+            <div class="item-tags"><span class="tag law">Contract Act 1872</span></div>
+          </div>
+        </div>
+        <div class="item critical" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Employment Agreement / Contract</div>
+            <div class="item-desc">Comprehensive contract covering duties, compensation, working hours, leave, termination clauses, IP ownership, garden leave provisions, and post-employment restrictions.</div>
+            <div class="item-tags"><span class="tag law">Contract Act 1872</span><span class="tag penalty">Dispute risk without</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Non-Disclosure Agreement (NDA)</div>
+            <div class="item-desc">Covers confidential information, trade secrets, customer data. Specify duration (typically 2–5 years post-employment), exceptions, and remedies. Include mutual obligations for senior hires.</div>
+            <div class="item-tags"><span class="tag law">Contract Act §27</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">IP Assignment Agreement</div>
+            <div class="item-desc">Ensure all work product, inventions, and IP created during employment is assigned to the company. Critical for technology startups. Separate deed or included in employment contract.</div>
+            <div class="item-tags"><span class="tag law">Patents Act, Copyright Act</span></div>
+          </div>
+        </div>
+        <div class="item critical" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">POSH Policy Acknowledgment</div>
+            <div class="item-desc">Every employee must sign a dated acknowledgment of receipt and understanding of the company's Sexual Harassment Prevention Policy before or on Day 1. Retain originals.</div>
+            <div class="item-tags"><span class="tag law">POSH Act 2013</span><span class="tag penalty">Penalty: ₹50,000</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Employee Handbook / HR Policy Manual</div>
+            <div class="item-desc">Cover leave policies (PL, SL, CL, ML/PL), working hours, code of conduct, IT usage, social media, dress code, grievance redressal, and disciplinary procedures.</div>
+            <div class="item-tags"><span class="tag law">S&E Act</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Appointment Letter (Post-probation)</div>
+            <div class="item-desc">Issue formal appointment letter upon successful completion of probation. Confirm permanent status, revised compensation if any, and revised leave entitlements.</div>
+            <div class="item-tags"><span class="tag law">S&E Act</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">KYC & Background Verification Consent</div>
+            <div class="item-desc">Collect Aadhaar, PAN, educational certificates, and reference contacts. Obtain written consent before conducting background checks. Retain BGV reports securely.</div>
+            <div class="item-tags"><span class="tag law">DPDP Act 2023</span><span class="tag new">DPDP 2026</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Declaration of Assets & Conflicts of Interest</div>
+            <div class="item-desc">Senior employees and those in procurement/finance roles must declare relevant outside interests, investments, and relationships that may constitute conflicts. Annual renewal required.</div>
+            <div class="item-tags"><span class="tag law">Companies Act</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Gratuity Nomination Form (Form F)</div>
+            <div class="item-desc">Collect nomination from each employee for gratuity payment. Required under Payment of Gratuity Act. Update on change of family status.</div>
+            <div class="item-tags"><span class="tag law">Gratuity Act 1972</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">EPF Nomination (Form 2)</div>
+            <div class="item-desc">Mandatory for all EPF-enrolled employees. Collect family declaration and nominee details. Update on change in family composition.</div>
+            <div class="item-tags"><span class="tag law">EPF Act 1952</span></div>
+          </div>
+        </div>
+        <div class="item" data-tags="new" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Data Processing Consent Form (DPDP Act)</div>
+            <div class="item-desc">New for 2026: Obtain explicit, specific, informed consent for collection and processing of employee personal data under the Digital Personal Data Protection Act 2023.</div>
+            <div class="item-tags"><span class="tag law">DPDP Act 2023</span><span class="tag new">NEW 2026</span><span class="tag penalty">Penalty: ₹250 Cr max</span></div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /s2 -->
+
+
+    <!-- ══════════════════════════════════════
+         SECTION 3: PAYROLL & STATUTORY
+    ══════════════════════════════════════ -->
+    <div class="section-block" id="s3">
+      <div class="section-header">
+        <span class="section-num">SECTION 03</span>
+        <div class="section-title-wrap">
+          <div class="section-title">Payroll & Statutory Compliance</div>
+          <div class="section-subtitle">Monthly, quarterly, and annual payroll obligations with penalty timelines</div>
+        </div>
+        <span class="section-badge badge-critical">Critical</span>
+      </div>
+      <div class="section-progress">
+        <span class="sp-label">Section Progress</span>
+        <div class="sp-bar"><div class="sp-fill" id="sp-3" style="width:0%"></div></div>
+        <span class="sp-pct" id="sp-pct-3">0%</span>
+      </div>
+
+      <table class="penalty-table">
+        <thead><tr><th>Obligation</th><th>Due Date</th><th>Penalty for Default</th></tr></thead>
+        <tbody>
+          <tr><td>EPF Contribution</td><td>15th of following month</td><td class="penalty-amt">₹5,000 + 12% p.a. interest</td></tr>
+          <tr><td>ESIC Contribution</td><td>15th of following month</td><td class="penalty-amt">₹5,000 + 12% p.a. interest</td></tr>
+          <tr><td>TDS (Salary) Deposit</td><td>7th of following month</td><td class="penalty-amt">1.5% p.m. + ₹200/day</td></tr>
+          <tr><td>PT Remittance</td><td>State-specific (monthly/annual)</td><td class="penalty-amt">Varies: ₹1,000–₹5,000</td></tr>
+          <tr><td>Form 16 Issue</td><td>15 June each year</td><td class="penalty-amt">₹100/day of delay</td></tr>
+          <tr><td>TDS Return (24Q)</td><td>Quarterly (31 Jul, 31 Oct, 31 Jan, 31 May)</td><td class="penalty-amt">₹200/day up to tax amount</td></tr>
+        </tbody>
+      </table>
+
+      <div class="subsection-title">Monthly & Ongoing Obligations</div>
+      <div class="checklist" id="c-s3">
+        <div class="item critical" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">EPF Registration & Monthly Contribution</div>
+            <div class="item-desc">Mandatory when headcount crosses 20. Employee contributes 12% of basic+DA; employer contributes 12% (8.33% to EPS, 3.67% to EPF). File ECR monthly on EPFO portal. Generate UAN for all eligible employees.</div>
+            <div class="item-tags"><span class="tag law">EPF Act 1952</span><span class="tag penalty">Penalty: ₹5,000 + 12% interest</span><span class="tag deadline">Due: 15th</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">ESIC Registration & Monthly Contribution</div>
+            <div class="item-desc">Applies when headcount ≥10 (in most states) and employee salary ≤₹21,000/month. Employee: 0.75%; Employer: 3.25% of gross wages. File monthly on ESIC portal. Issue ESIC cards to employees.</div>
+            <div class="item-tags"><span class="tag law">ESI Act 1948</span><span class="tag penalty">Penalty: ₹5,000 + interest</span><span class="tag deadline">Due: 15th</span></div>
+          </div>
+        </div>
+        <div class="item critical" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">TDS Deduction on Salaries (Section 192)</div>
+            <div class="item-desc">Compute TDS based on projected annual salary and applicable slab. Collect Form 12BB from employees for exemptions/deductions. Deposit by 7th of each month. Issue Form 16 by 15 June annually.</div>
+            <div class="item-tags"><span class="tag law">Income Tax §192</span><span class="tag penalty">Interest 1.5%/month</span><span class="tag deadline">Due: 7th</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Salary Slip Issuance</div>
+            <div class="item-desc">Issue monthly salary slips showing gross pay, all deductions (EPF, ESIC, PT, TDS), and net pay. Must be issued before or on payday. Maintain records for 8 years.</div>
+            <div class="item-tags"><span class="tag law">Payment of Wages Act</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Form 12BB Collection (Employee Declaration)</div>
+            <div class="item-desc">Collect at start of FY. Includes HRA, LTA, Section 80C/80D investments, home loan interest. Update mid-year if employee's situation changes. Retain for TDS computation.</div>
+            <div class="item-tags"><span class="tag law">Income Tax Rules</span><span class="tag deadline">April each year</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Quarterly TDS Return (Form 24Q)</div>
+            <div class="item-desc">File quarterly TDS returns reflecting all salary TDS. Q1: 31 Jul; Q2: 31 Oct; Q3: 31 Jan; Q4: 31 May. Use TRACES portal. Reconcile challan with return before filing.</div>
+            <div class="item-tags"><span class="tag law">Income Tax §200</span><span class="tag penalty">₹200/day default</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Form 16 Distribution</div>
+            <div class="item-desc">Annual TDS certificate issued to all employees by 15 June. Part A from TRACES (challan details); Part B (salary breakup and deductions) prepared by employer. Mandatory even if no TDS was deducted.</div>
+            <div class="item-tags"><span class="tag law">Income Tax §203</span><span class="tag penalty">₹100/day delay</span><span class="tag deadline">15 June</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Professional Tax Deduction & Remittance</div>
+            <div class="item-desc">Deduct PT from employee salaries per state-specific slab (e.g., Maharashtra: ₹200/month for salaries ≥₹10,000). Remit to state authority. File annual PT return.</div>
+            <div class="item-tags"><span class="tag law">State PT Acts</span></div>
+          </div>
+        </div>
+        <div class="item" data-tags="new" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">New Tax Regime (Section 115BAC) — Default 2026</div>
+            <div class="item-desc">From FY 2024–25 onwards, new tax regime is the default. Employees must opt-in to old regime via Form 10-IEA. Payroll software must handle both regimes. Update TDS computation accordingly.</div>
+            <div class="item-tags"><span class="tag law">Finance Act 2023</span><span class="tag new">NEW DEFAULT</span></div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /s3 -->
+
+
+    <!-- ══════════════════════════════════════
+         SECTION 4: LABOUR LAW COMPLIANCE
+    ══════════════════════════════════════ -->
+    <div class="section-block" id="s4">
+      <div class="section-header">
+        <span class="section-num">SECTION 04</span>
+        <div class="section-title-wrap">
+          <div class="section-title">Labour Law Compliance</div>
+          <div class="section-subtitle">Key central and state labour legislation applicable to Indian startups</div>
+        </div>
+        <span class="section-badge badge-high">High Priority</span>
+      </div>
+      <div class="section-progress">
+        <span class="sp-label">Section Progress</span>
+        <div class="sp-bar"><div class="sp-fill" id="sp-4" style="width:0%"></div></div>
+        <span class="sp-pct" id="sp-pct-4">0%</span>
+      </div>
+
+      <div class="callout callout-warning">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-content">
+          <div class="callout-title">Labour Codes — Transition Status</div>
+          <div class="callout-text">India's four Labour Codes (Wages, Industrial Relations, Social Security, OSH) have been passed but not yet fully notified for implementation as of 2026. The existing laws (listed below) remain in force. Monitor MoLE notifications closely for applicability timelines.</div>
+        </div>
+      </div>
+
+      <div class="checklist" id="c-s4">
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Shops & Establishments Act Compliance</div>
+            <div class="item-desc">Comply with state-specific rules on working hours (typically 9 hrs/day, 48 hrs/week), rest intervals, weekly holidays, overtime rates, and leave entitlements. Display registration certificate at premises.</div>
+            <div class="item-tags"><span class="tag law">State S&E Acts</span><span class="tag penalty">₹5,000–₹25,000</span></div>
+            <div class="item-meta"><span class="item-freq">ONGOING</span></div>
+          </div>
+        </div>
+        <div class="item critical" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Payment of Wages Act Compliance</div>
+            <div class="item-desc">Pay wages within 7 days after wage period (small organisations) or by 10th of following month. No unauthorised deductions. Only authorised deductions (EPF, ESIC, PT, fines up to 3% of wages) are permitted.</div>
+            <div class="item-tags"><span class="tag law">Payment of Wages Act 1936</span><span class="tag penalty">₹3,750–₹22,500</span></div>
+            <div class="item-meta"><span class="item-freq">MONTHLY</span></div>
+          </div>
+        </div>
+        <div class="item critical" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Minimum Wages Act Compliance</div>
+            <div class="item-desc">Pay at or above the state-notified minimum wage for each employee category/skill level. Wages revised twice a year (April & October) in most states. Non-payment is a criminal offence. Display rates at workplace.</div>
+            <div class="item-tags"><span class="tag law">Minimum Wages Act 1948</span><span class="tag penalty">Criminal: 6 months imprisonment</span></div>
+            <div class="item-meta"><span class="item-freq">REVIEWED BIANNUALLY</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Payment of Bonus Act Compliance</div>
+            <div class="item-desc">Applicable to establishments with 20+ employees. Eligible employees: salary ≤₹21,000/month; employed for ≥30 working days. Minimum bonus: 8.33% of annual salary; maximum: 20%. Pay before Diwali or within 8 months of year-end.</div>
+            <div class="item-tags"><span class="tag law">Bonus Act 1965</span><span class="tag penalty">₹1,000–₹6 months imprisonment</span><span class="tag deadline">Within 8 months of FY</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Payment of Gratuity Act Compliance</div>
+            <div class="item-desc">Applicable to 10+ employee establishments. Gratuity = 15/26 × last drawn salary × years of service. Payable after 5 years of continuous service (exception: death/disability). Maximum: ₹20,00,000. Pay within 30 days of due date.</div>
+            <div class="item-tags"><span class="tag law">Gratuity Act 1972</span><span class="tag penalty">10% p.a. interest on delayed payment</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Industrial Disputes Act — Retrenchment & Closure Rules</div>
+            <div class="item-desc">For organisations with 100+ employees: prior government permission needed for layoffs and closure. Retrenchment compensation = 15 days wages for each year of service. 60 days written notice required.</div>
+            <div class="item-tags"><span class="tag law">ID Act 1947</span><span class="tag penalty">Criminal liability</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Contract Labour Act (CLRA) Compliance</div>
+            <div class="item-desc">If engaging contract workers through contractors: register as principal employer if 20+ contract workers. Ensure contractors are licensed. Maintain register of contractors. Ensure contractors pay minimum wages and EPF/ESIC.</div>
+            <div class="item-tags"><span class="tag law">CLRA Act 1970</span><span class="tag penalty">₹1,000 + imprisonment</span></div>
+          </div>
+        </div>
+        <div class="item" data-tags="new" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Four Labour Codes — Readiness Assessment</div>
+            <div class="item-desc">Conduct internal assessment for readiness under: Code on Wages, Industrial Relations Code, Code on Social Security, and OSH Code. Update payroll structures, leave policies, and standing orders accordingly.</div>
+            <div class="item-tags"><span class="tag new">UPCOMING</span></div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /s4 -->
+
+
+    <!-- ══════════════════════════════════════
+         SECTION 5: POSH COMPLIANCE
+    ══════════════════════════════════════ -->
+    <div class="section-block" id="s5">
+      <div class="section-header">
+        <span class="section-num">SECTION 05</span>
+        <div class="section-title-wrap">
+          <div class="section-title">POSH Compliance</div>
+          <div class="section-subtitle">Prevention of Sexual Harassment at Workplace — mandatory for ALL employers</div>
+        </div>
+        <span class="section-badge badge-critical">Critical</span>
+      </div>
+      <div class="section-progress">
+        <span class="sp-label">Section Progress</span>
+        <div class="sp-bar"><div class="sp-fill" id="sp-5" style="width:0%"></div></div>
+        <span class="sp-pct" id="sp-pct-5">0%</span>
+      </div>
+      <div class="callout callout-danger">
+        <span class="callout-icon">🚨</span>
+        <div class="callout-content">
+          <div class="callout-title">Zero Exceptions</div>
+          <div class="callout-text">POSH Act applies to ALL organisations regardless of size — even those with a single employee. Non-compliance attracts ₹50,000 penalty and cancellation of business licence on second offence. Courts have taken a strict view of violations.</div>
+        </div>
+      </div>
+      <div class="checklist" id="c-s5">
+        <div class="item critical" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Internal Committee (IC) Formation</div>
+            <div class="item-desc">Mandatory for organisations with 10+ employees. IC must have: Presiding Officer (senior woman employee), minimum 2 members from employees, and 1 external member. At least 50% must be women. Terms of 3 years.</div>
+            <div class="item-tags"><span class="tag law">POSH Act 2013 §4</span><span class="tag penalty">₹50,000</span></div>
+          </div>
+        </div>
+        <div class="item critical" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">External Member Appointment</div>
+            <div class="item-desc">The external member must be from an NGO/association committed to women's causes, OR a person familiar with sexual harassment issues. Document their qualifications and appointment letter.</div>
+            <div class="item-tags"><span class="tag law">POSH Act 2013 §4(2)(c)</span></div>
+          </div>
+        </div>
+        <div class="item critical" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">POSH Policy Document</div>
+            <div class="item-desc">Draft and implement a comprehensive POSH Policy covering definition of sexual harassment, complaint mechanism, inquiry process, confidentiality obligations, penalties, and appeal process. Legal review recommended.</div>
+            <div class="item-tags"><span class="tag law">POSH Act 2013 §19</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">POSH Awareness Training — All Employees</div>
+            <div class="item-desc">Conduct mandatory training for all employees on definition of sexual harassment, complaint process, and IC contact. Conduct annually at minimum. Maintain attendance records. Online training acceptable post-COVID precedent.</div>
+            <div class="item-tags"><span class="tag law">POSH Act 2013 §19(c)</span><span class="tag deadline">Annual</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">IC Member POSH Training</div>
+            <div class="item-desc">IC members require specialised training on conducting inquiries, evidence handling, natural justice principles, and report writing. Document training completion for all IC members.</div>
+            <div class="item-tags"><span class="tag law">POSH Act 2013</span><span class="tag deadline">On appointment + Annual</span></div>
+          </div>
+        </div>
+        <div class="item critical" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Annual POSH Report Filing</div>
+            <div class="item-desc">IC must submit Annual Report to employer AND District Officer before 31 January each year. Report must include: number of complaints received, disposed, pending, and nature of action taken.</div>
+            <div class="item-tags"><span class="tag law">POSH Act 2013 §21</span><span class="tag penalty">Penalty for non-filing</span><span class="tag deadline">31 January</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Annual Report Inclusion in Board Report</div>
+            <div class="item-desc">Companies Act requires the Board's Annual Report to include a statement on POSH compliance — number of cases filed and disposed under the POSH Act.</div>
+            <div class="item-tags"><span class="tag law">Companies Act 2013</span><span class="tag deadline">Annual</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Workplace Notice / Poster Display</div>
+            <div class="item-desc">Display name and contact details of IC members, complaint mechanism, and penal consequences at prominent places in the workplace. Must be visible to all employees including contract workers.</div>
+            <div class="item-tags"><span class="tag law">POSH Act §19(b)</span></div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /s5 -->
+
+
+    <!-- ══════════════════════════════════════
+         SECTION 6: REGISTERS & RECORDS
+    ══════════════════════════════════════ -->
+    <div class="section-block" id="s6">
+      <div class="section-header">
+        <span class="section-num">SECTION 06</span>
+        <div class="section-title-wrap">
+          <div class="section-title">Statutory Registers & Records</div>
+          <div class="section-subtitle">Mandatory registers to be maintained and available for inspection at all times</div>
+        </div>
+        <span class="section-badge badge-standard">Standard</span>
+      </div>
+      <div class="section-progress">
+        <span class="sp-label">Section Progress</span>
+        <div class="sp-bar"><div class="sp-fill" id="sp-6" style="width:0%"></div></div>
+        <span class="sp-pct" id="sp-pct-6">0%</span>
+      </div>
+      <div class="callout callout-info">
+        <span class="callout-icon">📋</span>
+        <div class="callout-content">
+          <div class="callout-title">Digital Records Accepted</div>
+          <div class="callout-text">Most state S&E Acts now permit digital/electronic maintenance of registers, provided records are tamper-proof, backed up, and producible in printed form on demand by inspectors.</div>
+        </div>
+      </div>
+      <div class="checklist two-col" id="c-s6">
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Employee Register (Muster Roll)</div>
+            <div class="item-desc">Name, father's name, address, designation, date of joining, date of birth, nature of employment, UAN, ESIC IP number. Must be updated within 3 days of any change.</div>
+            <div class="item-tags"><span class="tag law">S&E Act / S&E Rules</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Attendance Register</div>
+            <div class="item-desc">Daily attendance records including time-in, time-out, and overtime hours. HRMS/biometric data is acceptable if exportable. Retain for minimum 5 years.</div>
+            <div class="item-tags"><span class="tag law">Factories Act / S&E Act</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Wage Register</div>
+            <div class="item-desc">Monthly wages paid to each employee, all deductions made, net wages paid, mode of payment, signature/acknowledgement. Must be maintained in prescribed format under applicable state rules.</div>
+            <div class="item-tags"><span class="tag law">Payment of Wages Act</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Leave Records</div>
+            <div class="item-desc">Earned Leave (EL), Casual Leave (CL), Sick Leave (SL), Maternity Leave balances and transactions for each employee. Leave encashment records. Annual leave carry-forward calculations.</div>
+            <div class="item-tags"><span class="tag law">S&E Act / Factories Act</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Overtime Register</div>
+            <div class="item-desc">Record employee-wise overtime hours and overtime wages paid (typically 2x normal rate). Ensure employees are not working beyond prescribed daily/weekly limits without compensation.</div>
+            <div class="item-tags"><span class="tag law">Factories Act / S&E Act</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">EPF / ESIC Contribution Records</div>
+            <div class="item-desc">Maintain ECR (Electronic Challan cum Return) copies, challan receipts, and EPFO/ESIC portal transaction records. Retain for minimum 7 years.</div>
+            <div class="item-tags"><span class="tag law">EPF Act / ESI Act</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Separation / Exit Records</div>
+            <div class="item-desc">Maintain record of all separations: resignation letters, acceptance, notice periods served/waived, full & final settlement calculations, relieving letters, experience certificates issued.</div>
+            <div class="item-tags"><span class="tag law">S&E Act</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Accident Register</div>
+            <div class="item-desc">Record all workplace accidents, near-misses, and occupational diseases. Include date, nature of injury, treatment provided, lost work days. Notify labour authorities for fatal/serious accidents.</div>
+            <div class="item-tags"><span class="tag law">Factories Act / State OSH Rules</span></div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /s6 -->
+
+
+    <!-- ══════════════════════════════════════
+         SECTION 7: HEALTH & SAFETY
+    ══════════════════════════════════════ -->
+    <div class="section-block" id="s7">
+      <div class="section-header">
+        <span class="section-num">SECTION 07</span>
+        <div class="section-title-wrap">
+          <div class="section-title">Health, Safety & Welfare</div>
+          <div class="section-subtitle">Workplace safety, maternity benefits, and employee well-being obligations</div>
+        </div>
+        <span class="section-badge badge-high">High Priority</span>
+      </div>
+      <div class="section-progress">
+        <span class="sp-label">Section Progress</span>
+        <div class="sp-bar"><div class="sp-fill" id="sp-7" style="width:0%"></div></div>
+        <span class="sp-pct" id="sp-7-pct">0%</span>
+      </div>
+      <div class="checklist two-col" id="c-s7">
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Workplace Safety Policy</div>
+            <div class="item-desc">Written safety policy covering emergency procedures, fire evacuation plan, first aid protocols, and hazard communication. Must be communicated to all employees. Review annually.</div>
+            <div class="item-tags"><span class="tag law">OSH Rules</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">First Aid & Medical Facilities</div>
+            <div class="item-desc">Maintain adequately stocked first aid box (per Rules: 1 box per 150 employees). Designate trained first aider. Display emergency contact numbers including ambulance and nearest hospital.</div>
+            <div class="item-tags"><span class="tag law">Factories Act §45</span></div>
+          </div>
+        </div>
+        <div class="item critical" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Maternity Benefits Compliance</div>
+            <div class="item-desc">26 weeks paid maternity leave for first two children (12 weeks for third+). 8 weeks pre-natal. Creche facility if 50+ employees. No termination during maternity leave. Medical bonus ₹3,500 if no hospitalization benefits.</div>
+            <div class="item-tags"><span class="tag law">Maternity Benefit Act 2017</span><span class="tag penalty">₹2,000–₹10,000 + imprisonment</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Work Hours Compliance</div>
+            <div class="item-desc">IT/ITES employees (S&E Act): typically 9 hrs/day, 48 hrs/week. Maximum 12 hrs with overtime compensation. Mandatory weekly off. Night shift rules applicable for women employees under state regulations.</div>
+            <div class="item-tags"><span class="tag law">State S&E Acts</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Fire Safety & Emergency Preparedness</div>
+            <div class="item-desc">Valid fire NOC from Fire Department. Fire extinguishers installed and inspected quarterly. Fire evacuation drills at least twice a year. Emergency exit signs and lighting functional.</div>
+            <div class="item-tags"><span class="tag law">State Fire Services Acts</span></div>
+          </div>
+        </div>
+        <div class="item" data-tags="new" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Mental Health & Employee Assistance</div>
+            <div class="item-desc">New expectation under OSH Code (pending): consider employee mental health. Growing judicial emphasis on employer duty of care. Consider EAP (Employee Assistance Programme) and mental health days.</div>
+            <div class="item-tags"><span class="tag new">EMERGING 2026</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Group Mediclaim / Health Insurance</div>
+            <div class="item-desc">While not legally mandatory for all employers, increasingly expected. If ESIC applies, it substitutes. For ESIC-exempt employees (salary >₹21,000), best practice is to provide group health insurance.</div>
+            <div class="item-tags"></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Creche Facility (if 50+ female employees)</div>
+            <div class="item-desc">Under Maternity Benefit (Amendment) Act 2017: creche within 500m radius or within the premises. Mother entitled to 4 visits per day including break. Maintain creche register.</div>
+            <div class="item-tags"><span class="tag law">Maternity Benefit Act 2017 §11A</span></div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /s7 -->
+
+
+    <!-- ══════════════════════════════════════
+         SECTION 8: ANNUAL FILINGS
+    ══════════════════════════════════════ -->
+    <div class="section-block" id="s8">
+      <div class="section-header">
+        <span class="section-num">SECTION 08</span>
+        <div class="section-title-wrap">
+          <div class="section-title">Annual Filings & Returns</div>
+          <div class="section-subtitle">Yearly compliance deadlines to track and never miss</div>
+        </div>
+        <span class="section-badge badge-critical">Critical</span>
+      </div>
+      <div class="section-progress">
+        <span class="sp-label">Section Progress</span>
+        <div class="sp-bar"><div class="sp-fill" id="sp-8" style="width:0%"></div></div>
+        <span class="sp-pct" id="sp-pct-8">0%</span>
+      </div>
+
+      <table class="penalty-table">
+        <thead><tr><th>Filing</th><th>Authority</th><th>Deadline</th><th>Penalty</th></tr></thead>
+        <tbody>
+          <tr><td>Labour Law Annual Return</td><td>Labour Dept (state)</td><td>Jan 31 / Feb 28</td><td class="penalty-amt">₹5,000–₹50,000</td></tr>
+          <tr><td>PF Annual Return</td><td>EPFO</td><td>April 30</td><td class="penalty-amt">₹5,000 + interest</td></tr>
+          <tr><td>ESIC Annual Return</td><td>ESIC</td><td>Nov 11 & May 12</td><td class="penalty-amt">₹5,000 + interest</td></tr>
+          <tr><td>PT Annual Return</td><td>State PT Dept</td><td>State-specific</td><td class="penalty-amt">State-specific</td></tr>
+          <tr><td>POSH Annual Report</td><td>District Officer</td><td>Jan 31</td><td class="penalty-amt">₹50,000</td></tr>
+          <tr><td>Bonus Payment</td><td>Employees</td><td>Within 8 months of FY</td><td class="penalty-amt">Criminal liability</td></tr>
+        </tbody>
+      </table>
+
+      <div class="checklist" id="c-s8">
+        <div class="item critical" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Annual Labour Law Returns (State)</div>
+            <div class="item-desc">File combined or separate annual returns under S&E Act, Minimum Wages Act, Payment of Wages Act, and Bonus Act with the state Labour Department. Format varies by state. Shram Suvidha Portal used in many states.</div>
+            <div class="item-tags"><span class="tag law">Multiple Labour Acts</span><span class="tag deadline">Jan 31 / Feb 28</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">EPF Annual Return / Reconciliation</div>
+            <div class="item-desc">Annual EPF account statement reconciliation. Ensure UAN-linked accounts are correct. Raise correction requests for any discrepancies. File PF return on EPFO portal.</div>
+            <div class="item-tags"><span class="tag law">EPF Act 1952</span><span class="tag deadline">April 30</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">ESIC Half-Yearly Return</div>
+            <div class="item-desc">File ESIC contribution returns for April–September by November 11, and October–March by May 12. Reconcile with monthly challans. Update employee ESIC records for any changes.</div>
+            <div class="item-tags"><span class="tag law">ESI Act 1948</span><span class="tag deadline">Nov 11 & May 12</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Professional Tax Annual Return</div>
+            <div class="item-desc">File annual PT return with the state commercial tax/PT authority. Attach challan copies as proof of remittance. Deadlines and formats vary significantly by state.</div>
+            <div class="item-tags"><span class="tag law">State PT Acts</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">S&E Registration Annual Renewal</div>
+            <div class="item-desc">Renew Shops & Establishments Registration annually (state-specific timeline). Submit updated employee count, address details, and pay renewal fees. Failure may invalidate banking relationships.</div>
+            <div class="item-tags"><span class="tag law">State S&E Acts</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Companies Act Annual Compliances (HR Related)</div>
+            <div class="item-desc">Include POSH statement, CSR report (if applicable), Director appointments/resignations, and key managerial personnel disclosures in the Annual Report and MGT-7 (Annual Return).</div>
+            <div class="item-tags"><span class="tag law">Companies Act 2013</span><span class="tag deadline">60 days after AGM</span></div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /s8 -->
+
+
+    <!-- ══════════════════════════════════════
+         SECTION 9: NEW-AGE COMPLIANCE
+    ══════════════════════════════════════ -->
+    <div class="section-block" id="s9">
+      <div class="section-header">
+        <span class="section-num">SECTION 09</span>
+        <div class="section-title-wrap">
+          <div class="section-title">New-Age & Emerging Compliance</div>
+          <div class="section-subtitle">2026-relevant obligations for modern startups: data privacy, remote work, and gig economy</div>
+        </div>
+        <span class="section-badge badge-new">New 2026</span>
+      </div>
+      <div class="section-progress">
+        <span class="sp-label">Section Progress</span>
+        <div class="sp-bar"><div class="sp-fill" id="sp-9" style="width:0%"></div></div>
+        <span class="sp-pct" id="sp-pct-9">0%</span>
+      </div>
+      <div class="callout callout-success">
+        <span class="callout-icon">🆕</span>
+        <div class="callout-content">
+          <div class="callout-title">DPDP Act 2023 — Rules Expected 2025–26</div>
+          <div class="callout-text">The Digital Personal Data Protection Act 2023 is expected to be operationalised via Rules in 2025-26. Startups must prepare data processing frameworks, consent mechanisms, and data principal rights infrastructure now.</div>
+        </div>
+      </div>
+      <div class="checklist" id="c-s9">
+        <div class="item data-tags-new" data-tags="new" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">DPDP Act — Data Fiduciary Framework</div>
+            <div class="item-desc">Map all personal data collected from employees. Identify purpose of processing for each data element. Implement consent framework. Appoint Data Protection Officer if required. Establish data breach response protocol (72-hour notification requirement).</div>
+            <div class="item-tags"><span class="tag law">DPDP Act 2023</span><span class="tag new">NEW 2026</span><span class="tag penalty">Penalty: up to ₹250 Cr</span></div>
+          </div>
+        </div>
+        <div class="item" data-tags="new" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Employee Privacy Notice & Data Rights</div>
+            <div class="item-desc">Issue comprehensive privacy notice to employees explaining what data is collected, how it's used, retention period, and their rights (access, correction, erasure). Must be in simple, understandable language.</div>
+            <div class="item-tags"><span class="tag law">DPDP Act 2023 §5</span><span class="tag new">NEW 2026</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Remote Work / WFH Policy</div>
+            <div class="item-desc">Document eligibility, work hours expectations, equipment provisioning, data security requirements, expense reimbursements, and performance monitoring for remote/hybrid employees. Address S&E Act applicability for home-based workers.</div>
+            <div class="item-tags"><span class="tag new">BEST PRACTICE</span></div>
+          </div>
+        </div>
+        <div class="item" data-tags="new" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Gig Worker Classification & Compliance</div>
+            <div class="item-desc">Correctly classify gig workers, freelancers, and independent contractors vs. employees. Misclassification risk: retrospective EPF, ESIC, TDS, and labour law obligations. Ensure proper contracts for all gig engagements. Monitor Code on Social Security (gig worker provisions).</div>
+            <div class="item-tags"><span class="tag law">Code on Social Security 2020</span><span class="tag new">GIGS 2026</span><span class="tag penalty">Retrospective liability</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Background Verification (BGV) Process</div>
+            <div class="item-desc">Conduct BGV for all employees: address verification, criminal record check (where permissible), education/employment history verification. Obtain written consent before BGV. DPDP-compliant data handling of BGV data.</div>
+            <div class="item-tags"><span class="tag law">DPDP Act 2023</span></div>
+          </div>
+        </div>
+        <div class="item" data-tags="new" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">AI Tools in HR — Bias & Transparency Compliance</div>
+            <div class="item-desc">If using AI for hiring, performance evaluation, or promotions: document decision criteria, ensure non-discrimination, maintain audit trails. Emerging regulatory focus globally; Indian judicial guidance expected.</div>
+            <div class="item-tags"><span class="tag new">EMERGING 2026</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">IT & BYOD Security Policy</div>
+            <div class="item-desc">Define acceptable use of company IT systems, BYOD guidelines, data classification, encryption requirements, and incident reporting. Employees to sign acknowledgment. Critical for data protection compliance.</div>
+            <div class="item-tags"><span class="tag law">IT Act 2000 / DPDP 2023</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Social Media & Communication Policy</div>
+            <div class="item-desc">Define guidelines for employee conduct on social media — confidentiality obligations, brand representation, prohibited content, and consequences of violations. Include whistleblower protections.</div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /s9 -->
+
+
+    <!-- ══════════════════════════════════════
+         SECTION 10: AUDIT & GOVERNANCE
+    ══════════════════════════════════════ -->
+    <div class="section-block" id="s10">
+      <div class="section-header">
+        <span class="section-num">SECTION 10</span>
+        <div class="section-title-wrap">
+          <div class="section-title">Audit & HR Governance</div>
+          <div class="section-subtitle">Systems and processes to maintain sustained compliance and governance excellence</div>
+        </div>
+        <span class="section-badge badge-standard">Governance</span>
+      </div>
+      <div class="section-progress">
+        <span class="sp-label">Section Progress</span>
+        <div class="sp-bar"><div class="sp-fill" id="sp-10" style="width:0%"></div></div>
+        <span class="sp-pct" id="sp-pct-10">0%</span>
+      </div>
+      <div class="checklist two-col" id="c-s10">
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Quarterly HR Compliance Audit</div>
+            <div class="item-desc">Internal audit of payroll accuracy, statutory filings, document completeness, and policy adherence. Create audit checklist aligned with this document. Address findings within 30 days. Report to founders/board.</div>
+            <div class="item-tags"><span class="tag deadline">Quarterly</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Annual External HR Audit</div>
+            <div class="item-desc">Engage an independent labour law consultant or HR compliance firm for annual audit. Particularly critical before funding rounds, IPO, or M&A due diligence. Address all findings proactively.</div>
+            <div class="item-tags"><span class="tag deadline">Annual</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Compliance Calendar & Tracker</div>
+            <div class="item-desc">Maintain a live compliance calendar with all statutory deadlines, responsible owners, and status tracking. Set automated reminders 30 and 7 days before each deadline. Share with finance and legal teams.</div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Vendor / Contractor Compliance Checks</div>
+            <div class="item-desc">As principal employer, verify that all third-party contractors (facility management, security, IT support) comply with EPF, ESIC, Minimum Wages, and POSH obligations for their workers. Collect compliance certificates quarterly.</div>
+            <div class="item-tags"><span class="tag law">CLRA Act 1970</span><span class="tag deadline">Quarterly</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Digital Documentation & Secure Backup</div>
+            <div class="item-desc">All HR documents (contracts, returns, challans, registers) stored in encrypted digital form. 3-2-1 backup rule: 3 copies, 2 media types, 1 off-site/cloud. Access controlled with audit logs. Retention policy per statutory requirements (5–8 years).</div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Grievance Redressal Mechanism</div>
+            <div class="item-desc">Establish formal grievance mechanism with designated HR contact, defined timelines (acknowledge in 3 days, resolve in 30 days), and escalation path. Document all grievances and resolutions. Separate from POSH complaint channel.</div>
+            <div class="item-tags"><span class="tag law">Industrial Employment Act</span></div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">Board / Management HR Compliance Reporting</div>
+            <div class="item-desc">Present HR compliance status to board/management quarterly. Include: pending filings, resolved grievances, POSH updates, audit findings, and upcoming regulatory changes. Escalate critical risks immediately.</div>
+          </div>
+        </div>
+        <div class="item" onclick="toggle(this)">
+          <div class="item-checkbox"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4L4.5 7.5L11 1" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="item-body">
+            <div class="item-title">HR Policy Annual Review & Update</div>
+            <div class="item-desc">Review all HR policies annually for legal changes, best practices, and business evolution. Minimum review triggers: new labour code notifications, court judgments, SEBI/MCA circulars, and annual before April 1.</div>
+            <div class="item-tags"><span class="tag deadline">Annual — March</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-info" style="margin-top:28px">
+        <span class="callout-icon">⚖️</span>
+        <div class="callout-content">
+          <div class="callout-title">Due Diligence Ready</div>
+          <div class="callout-text">Investors, acquirers, and IPO advisors conduct thorough HR compliance due diligence. Startups with clean compliance records — properly maintained registers, timely filings, zero pending labour disputes — command higher valuations and close deals faster. Start compliance hygiene from Day 1.</div>
+        </div>
+      </div>
+    </div><!-- /s10 -->
+
+  </div><!-- /content -->
+</main>
+
+<script>
+  // ── STATE ──
+  const STORAGE_KEY = 'hr_checklist_2026';
+  let state = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+  let currentFilter = 'all';
+
+  // ── INIT ──
+  window.addEventListener('DOMContentLoaded', () => {
+    // Restore checked state
+    document.querySelectorAll('.item').forEach((item, i) => {
+      item.dataset.idx = i;
+      if (state[i]) item.classList.add('checked');
+    });
+    updateAll();
+  });
+
+  // ── TOGGLE ──
+  function toggle(el) {
+    el.classList.toggle('checked');
+    const i = el.dataset.idx;
+    if (el.classList.contains('checked')) state[i] = true;
+    else delete state[i];
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    updateAll();
+  }
+
+  // ── UPDATE ALL ──
+  function updateAll() {
+    const items = document.querySelectorAll('.item');
+    const total = items.length;
+    const done = document.querySelectorAll('.item.checked').length;
+
+    document.getElementById('pct-overall').textContent = total ? Math.round(done/total*100)+'%' : '0%';
+    document.getElementById('fill-overall').style.width = total ? (done/total*100)+'%' : '0%';
+    document.getElementById('stat-total').textContent = done;
+
+    // Per-section
+    for (let s = 1; s <= 10; s++) {
+      const sec = document.getElementById('c-s'+s);
+      if (!sec) continue;
+      const sItems = sec.querySelectorAll('.item');
+      const sDone = sec.querySelectorAll('.item.checked').length;
+      const pct = sItems.length ? Math.round(sDone/sItems.length*100) : 0;
+      const fill = document.getElementById('sp-'+s);
+      const pctEl = document.getElementById('sp-pct-'+s) || document.getElementById('sp-'+s+'-pct');
+      if (fill) fill.style.width = pct+'%';
+      if (pctEl) pctEl.textContent = pct+'%';
+      const nc = document.getElementById('nav-check-'+s);
+      if (nc) nc.textContent = sDone+'/'+sItems.length;
+    }
+  }
+
+  // ── FILTER ──
+  function setFilter(f, btn) {
+    currentFilter = f;
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    applyFilters();
+  }
+
+  function filterItems() {
+    applyFilters();
+  }
+
+  function applyFilters() {
+    const q = document.getElementById('search-input').value.toLowerCase();
+    document.querySelectorAll('.item').forEach(item => {
+      const text = item.textContent.toLowerCase();
+      const matchQ = !q || text.includes(q);
+      let matchF = true;
+      if (currentFilter === 'critical') matchF = item.classList.contains('critical') || (item.dataset.tags||'').includes('critical');
+      if (currentFilter === 'unchecked') matchF = !item.classList.contains('checked');
+      if (currentFilter === 'checked') matchF = item.classList.contains('checked');
+      if (currentFilter === 'new') matchF = (item.dataset.tags||'').includes('new') || item.textContent.includes('NEW') || item.textContent.includes('2026');
+      if (currentFilter === 'penalty') matchF = item.textContent.toLowerCase().includes('penalty') || item.textContent.includes('₹');
+      item.style.display = (matchQ && matchF) ? '' : 'none';
+    });
+  }
+
+  // ── CHECK ALL (visible section) ──
+  function checkAll() {
+    const visible = document.querySelectorAll('.item:not([style*="display: none"])');
+    const allChecked = [...visible].every(i => i.classList.contains('checked'));
+    visible.forEach(item => {
+      if (allChecked) {
+        item.classList.remove('checked');
+        delete state[item.dataset.idx];
+      } else {
+        item.classList.add('checked');
+        state[item.dataset.idx] = true;
+      }
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    updateAll();
+  }
+
+  // ── RESET ──
+  function resetAll() {
+    if (!confirm('Reset all checklist progress?')) return;
+    state = {};
+    localStorage.removeItem(STORAGE_KEY);
+    document.querySelectorAll('.item').forEach(i => i.classList.remove('checked'));
+    updateAll();
+  }
+
+  // ── SIDEBAR ──
+  function toggleSidebar() {
+    document.getElementById('sidebar').classList.toggle('open');
+    document.getElementById('overlay').classList.toggle('show');
+  }
+  function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('overlay').classList.remove('show');
+  }
+
+  // ── NAV ACTIVE ──
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const id = e.target.id;
+        document.querySelectorAll('.nav-section').forEach(n => {
+          n.classList.toggle('active', n.getAttribute('href') === '#'+id);
+        });
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.section-block').forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
